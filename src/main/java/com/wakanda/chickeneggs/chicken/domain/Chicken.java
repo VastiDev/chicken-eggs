@@ -21,7 +21,7 @@ public class Chicken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name= "idChicken", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", name= "idChicken", updatable = false, unique = true, nullable = false)
     private UUID idChicken;
     @NotBlank
     private String name;
