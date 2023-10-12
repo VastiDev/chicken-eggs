@@ -26,7 +26,8 @@ public class ChickenController implements ChickenAPI{
     @Override
     public List<ChickenListResponse> getAllChickens() {
         log.info("[start] ChickenController - getAllChickens");
+        List<ChickenListResponse> chickens = chickenService.getAllChickens();
         log.info("[finish] ChickenController - getAllChickens");
-        return null;
+        return chickens;
     }
 }
