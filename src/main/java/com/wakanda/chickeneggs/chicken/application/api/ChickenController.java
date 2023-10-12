@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 
 @RestController
 @Log4j2
@@ -19,5 +21,12 @@ public class ChickenController implements ChickenAPI{
         ChickenResponse createdChicken = chickenService.createChicken(chickenrequest);
         log.info("[finish] ChickenController - postChicken");
         return createdChicken;
+    }
+
+    @Override
+    public List<ChickenListResponse> getAllChickens() {
+        log.info("[start] ChickenController - getAllChickens");
+        log.info("[finish] ChickenController - getAllChickens");
+        return null;
     }
 }
