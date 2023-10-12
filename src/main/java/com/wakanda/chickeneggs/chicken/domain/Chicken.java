@@ -1,9 +1,6 @@
 package com.wakanda.chickeneggs.chicken.domain;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -14,9 +11,10 @@ import java.util.UUID;
 
 
 
-@Data
+@Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
+
 public class Chicken {
 
     @Id
