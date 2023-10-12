@@ -1,5 +1,6 @@
 package com.wakanda.chickeneggs.chicken.domain;
 
+import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,14 +27,13 @@ public class Chicken {
     @NotNull
     private LocalDate birthDate;
 
-
     private LocalDateTime hourDateRegistration;
     private LocalDateTime hourDateLastChange;
 
-    public Chicken( String name, LocalDate birthDate) {
-        this.name = name;
-        this.birthDate = birthDate;
-        this.hourDateRegistration = LocalDateTime.now();
 
+    public Chicken(ChickenRequest chickenrequest) {
+        this.name = chickenrequest.getName();
+        this.birthDate = chickenrequest.getBirthDate();
+        this.hourDateRegistration = LocalDateTime.now();
     }
 }
