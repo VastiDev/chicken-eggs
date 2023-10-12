@@ -6,7 +6,6 @@ import com.wakanda.chickeneggs.chicken.application.repository.ChickenRepository;
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.apache.catalina.Store;
 import org.springframework.stereotype.Service;
 
 
