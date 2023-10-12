@@ -30,7 +30,8 @@ public class ChickenAplicationService implements ChickenService {
     @Override
     public List<ChickenListResponse> getAllChickens() {
         log.info("[start] ChickenAplicationService - getAllChickens");
+        List<Chicken> chickens = chickenRepository.getAllChickens();
         log.info("[finish] ChickenAplicationService - getAllChickens");
-        return null;
+        return ChickenListResponse.convert(chickens);
     }
 }
