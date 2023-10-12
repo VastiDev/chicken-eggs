@@ -6,10 +6,15 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
+import java.util.UUID;
+
+import static com.fasterxml.jackson.databind.jsonFormatVisitors.JsonValueFormat.UUID;
 
 @RestController
 @RequestMapping("/v1/chicken")
 public interface ChickenAPI {
+
+
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     ChickenResponse postChicken(@Valid @RequestBody ChickenRequest chickenrequest);
@@ -18,8 +23,7 @@ public interface ChickenAPI {
     @ResponseStatus(code = HttpStatus.OK)
     List<ChickenListResponse> getAllChickens ();
 
-
-
-
-
+    @GetMapping(value = "/{idChicken}")
+    @ResponseStatus(code = HttpStatus.OK)
+    ChickenDetailedResponse getChickenPerId(@PathVariable java.util.UUID idChicken);
 }

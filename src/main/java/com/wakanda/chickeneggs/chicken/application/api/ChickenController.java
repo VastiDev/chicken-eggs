@@ -6,6 +6,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @RestController
@@ -29,5 +30,12 @@ public class ChickenController implements ChickenAPI{
         List<ChickenListResponse> chickens = chickenService.getAllChickens();
         log.info("[finish] ChickenController - getAllChickens");
         return chickens;
+    }
+
+    @Override
+    public ChickenDetailedResponse getChickenPerId(UUID idChicken) {
+        log.info("[start] ChickenController - getChickenPerId");
+        log.info("[finish] ChickenController - getChickenPerId");
+        return null;
     }
 }
