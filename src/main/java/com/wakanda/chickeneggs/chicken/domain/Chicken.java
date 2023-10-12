@@ -2,6 +2,7 @@ package com.wakanda.chickeneggs.chicken.domain;
 
 import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
 import lombok.*;
+import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -20,7 +21,7 @@ public class Chicken {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name= "id", updatable = false, unique = true, nullable = false)
+    @Column(name= "idChicken", updatable = false, unique = true, nullable = false)
     private UUID idChicken;
     @NotBlank
     private String name;
