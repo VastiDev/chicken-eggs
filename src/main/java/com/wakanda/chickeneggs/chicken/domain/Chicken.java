@@ -4,20 +4,23 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+
+@EntityListeners({Chicken.class})
 @Getter
 @Entity
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class Chicken {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name= "id", updatable = false, unique = true, nullable = false)
     private UUID idChicken;
     @NotBlank
     private String name;
@@ -28,8 +31,7 @@ public class Chicken {
     private LocalDateTime hourDateRegistration;
     private LocalDateTime hourDateLastChange;
 
-    public Chicken(UUID idChicken, String name, LocalDate birthDate) {
-        this.idChicken = UUID.randomUUID();
+    public Chicken( String name, LocalDate birthDate) {
         this.name = name;
         this.birthDate = birthDate;
         this.hourDateRegistration = LocalDateTime.now();
