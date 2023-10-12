@@ -17,4 +17,10 @@ public interface ChickenAPI {
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<ChickenListResponse> getAllChickens ();
+
+    @PatchMapping
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    ChickenResponse patchChicken(@Valid @RequestBody ChickenRequest chickenrequest);
+
+
 }
