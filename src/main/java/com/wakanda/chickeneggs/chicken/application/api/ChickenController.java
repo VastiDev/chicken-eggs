@@ -35,7 +35,8 @@ public class ChickenController implements ChickenAPI{
     @Override
     public ChickenDetailedResponse getChickenPerId(UUID idChicken) {
         log.info("[start] ChickenController - getChickenPerId");
+        ChickenDetailedResponse detailedResponse = chickenService.getChickenPerId(idChicken);
         log.info("[finish] ChickenController - getChickenPerId");
-        return null;
+        return detailedResponse ;
     }
 }

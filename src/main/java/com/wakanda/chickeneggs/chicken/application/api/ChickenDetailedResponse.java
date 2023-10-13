@@ -1,5 +1,6 @@
 package com.wakanda.chickeneggs.chicken.application.api;
 
+import com.wakanda.chickeneggs.chicken.domain.Chicken;
 import lombok.Value;
 
 import java.time.LocalDate;
@@ -12,4 +13,11 @@ public class ChickenDetailedResponse {
     private String name;
     private LocalDate birthDate;
     private LocalDateTime hourDateRegistration;
+
+    public ChickenDetailedResponse(Chicken chicken) {
+        this.idChicken = chicken.getIdChicken();
+        this.name = chicken.getName();
+        this.birthDate =chicken.getBirthDate();
+        this.hourDateRegistration = chicken.getHourDateRegistration();
+    }
 }

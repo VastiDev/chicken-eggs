@@ -1,5 +1,6 @@
 package com.wakanda.chickeneggs.chicken.application.service;
 
+import com.wakanda.chickeneggs.chicken.application.api.ChickenDetailedResponse;
 import com.wakanda.chickeneggs.chicken.application.api.ChickenListResponse;
 import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
 import com.wakanda.chickeneggs.chicken.application.api.ChickenResponse;
@@ -10,28 +11,39 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.UUID;
 
 
 @Service
 @Log4j2
 @RequiredArgsConstructor
-public class ChickenAplicationService implements ChickenService {
+public class ChickenApplicationService implements ChickenService {
     private final ChickenRepository chickenRepository;
 
     @Override
     public ChickenResponse createChicken(ChickenRequest chickenrequest) {
-        log.info("[start] ChickenAplicationService - createChicken");
+        log.info("[start] ChickenApplicationService - createChicken");
         Chicken chicken = chickenRepository.save(new Chicken(chickenrequest));
-        log.info("[finish] ChickenAplicationService - createChicken");
+        log.info("[finish] ChickenApplicationService - createChicken");
         return ChickenResponse.builder().idChicken(chicken.getIdChicken())
                 .build();
     }
 
     @Override
     public List<ChickenListResponse> getAllChickens() {
-        log.info("[start] ChickenAplicationService - getAllChickens");
+        log.info("[start] ChickenApplicationService - getAllChickens");
         List<Chicken> chickens = chickenRepository.getAllChickens();
-        log.info("[finish] ChickenAplicationService - getAllChickens");
+        log.info("[finish] ChickenApplicationService - getAllChickens");
         return ChickenListResponse.convert(chickens);
+    }
+
+
+    @Override
+    public ChickenDetailedResponse getChickenPerId(UUID idChicken) {
+        log.info("[start] ChickenApplicationService - getChickenPerId");
+        Chicken chicken = chickenRepository.getChickenPerId(idChicken);
+        log.info("[finish] ChickenApplicationService - getChickenPerId");
+        return new ChickenDetailedResponse(chicken);
+
     }
 }

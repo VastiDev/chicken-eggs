@@ -2,7 +2,6 @@ package com.wakanda.chickeneggs.chicken.domain;
 
 import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
 import lombok.*;
-import org.hibernate.annotations.GenericGenerator;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
@@ -16,7 +15,7 @@ import java.util.UUID;
 @Getter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-
+@AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class Chicken {
 
     @Id
@@ -32,9 +31,10 @@ public class Chicken {
     private LocalDateTime hourDateLastChange;
 
 
-    public Chicken(ChickenRequest chickenrequest) {
+    public Chicken( ChickenRequest chickenrequest) {
         this.name = chickenrequest.getName();
         this.birthDate = chickenrequest.getBirthDate();
         this.hourDateRegistration = LocalDateTime.now();
     }
+
 }
