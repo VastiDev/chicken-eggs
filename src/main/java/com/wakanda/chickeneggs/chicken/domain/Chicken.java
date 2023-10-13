@@ -2,7 +2,7 @@ package com.wakanda.chickeneggs.chicken.domain;
 
 import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
 import com.wakanda.chickeneggs.chicken.application.api.ChickenUpdateRequest;
-import com.wakanda.chickeneggs.eggs.domain.Eggs;
+import com.wakanda.chickeneggs.eggs.domain.DailyEggsRecord;
 import lombok.*;
 
 import javax.persistence.*;
@@ -35,7 +35,7 @@ public class Chicken {
     private LocalDateTime hourDateLastChange;
 
     @OneToMany(mappedBy = "chicken", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Eggs> eggs = new ArrayList<>();
+    private List<DailyEggsRecord> eggs = new ArrayList<>();
 
     public Chicken( ChickenRequest chickenrequest) {
         this.name = chickenrequest.getName();
