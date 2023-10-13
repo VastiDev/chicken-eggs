@@ -26,4 +26,9 @@ public interface ChickenAPI {
     @GetMapping(value = "/{idChicken}")
     @ResponseStatus(code = HttpStatus.OK)
     ChickenDetailedResponse getChickenPerId(@PathVariable UUID idChicken);
+
+
+    @DeleteMapping(value = "/{idChicken}")
+    @ResponseStatus(code = HttpStatus.OK)
+    void deleteChickenPerId(@PathVariable UUID idChicken);
 }
