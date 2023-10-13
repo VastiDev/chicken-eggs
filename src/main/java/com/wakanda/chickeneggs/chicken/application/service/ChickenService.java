@@ -14,4 +14,6 @@ public interface ChickenService {
     List<ChickenListResponse> getAllChickens();
 
     ChickenDetailedResponse getChickenPerId(UUID idChicken);
+
+    void deleteChickenPerId(UUID idChicken);
 }

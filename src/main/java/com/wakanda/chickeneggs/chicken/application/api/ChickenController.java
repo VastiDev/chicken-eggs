@@ -35,6 +35,7 @@ public class ChickenController implements ChickenAPI{
     @Override
     public ChickenDetailedResponse getChickenPerId(UUID idChicken) {
         log.info("[start] ChickenController - getChickenPerId");
+        log.info("[idChicken] {}", idChicken);
         ChickenDetailedResponse detailedResponse = chickenService.getChickenPerId(idChicken);
         log.info("[finish] ChickenController - getChickenPerId");
         return detailedResponse ;
@@ -43,6 +44,8 @@ public class ChickenController implements ChickenAPI{
     @Override
     public void deleteChickenPerId(UUID idChicken) {
         log.info("[start] ChickenController - deleteChickenPerId");
+        log.info("[idChicken] {}", idChicken);
+        chickenService.deleteChickenPerId(idChicken);
         log.info("[finish] ChickenController - deleteChickenPerId");
 
     }

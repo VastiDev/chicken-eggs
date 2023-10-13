@@ -11,4 +11,6 @@ public interface ChickenRepository {
     List<Chicken> getAllChickens();
 
     Chicken getChickenPerId(UUID idChicken);
+
+    void deleteChickenPerId(Chicken chicken);
 }

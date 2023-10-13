@@ -42,4 +42,11 @@ public class ChickenInfraRepository implements ChickenRepository {
         log.info("[finish] ChickenInfraRepository - getChickenPerId");
         return chicken;
     }
+
+    @Override
+    public void deleteChickenPerId(Chicken chicken) {
+        log.info("[start] ChickenInfraRepository - deleteChickenPerId");
+        chickenSpringDataJpaRepository.delete(chicken);
+        log.info("[finish] ChickenInfraRepository - deleteChickenPerId");
+    }
 }

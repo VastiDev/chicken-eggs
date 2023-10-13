@@ -46,4 +46,12 @@ public class ChickenApplicationService implements ChickenService {
         return new ChickenDetailedResponse(chicken);
 
     }
+
+    @Override
+    public void deleteChickenPerId(UUID idChicken) {
+        log.info("[start] ChickenApplicationService - deleteChickenPerId");
+        Chicken chicken = chickenRepository.getChickenPerId(idChicken);
+        chickenRepository.deleteChickenPerId(chicken);
+        log.info("[finish] ChickenApplicationService - deleteChickenPerId");
+    }
 }
