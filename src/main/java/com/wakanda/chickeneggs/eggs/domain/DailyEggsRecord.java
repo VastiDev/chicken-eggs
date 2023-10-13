@@ -7,8 +7,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.UUID;
 @Getter
 @Entity
@@ -22,8 +22,10 @@ public class DailyEggsRecord{
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_chicken", nullable = false)
     private Chicken chicken;
+    @NotNull
     private Integer eggsQuantity;
-    private LocalDateTime hourDateRegistration;
+    @NotNull
+    private LocalDate hourDateRegistration;
 
 
 }

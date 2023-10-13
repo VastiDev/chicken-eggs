@@ -12,7 +12,7 @@ public interface DailyEggsRecordAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     EggsRecordResponse postEggsRecord(@PathVariable UUID idChicken,
-                                      @Valid  EggsRecordRequest eggsRecordRequest);
+                                      @Valid @RequestBody EggsRecordRequest eggsRecordRequest);
 
 
 }
