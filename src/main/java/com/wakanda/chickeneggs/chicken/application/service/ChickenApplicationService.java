@@ -1,9 +1,6 @@
 package com.wakanda.chickeneggs.chicken.application.service;
 
-import com.wakanda.chickeneggs.chicken.application.api.ChickenDetailedResponse;
-import com.wakanda.chickeneggs.chicken.application.api.ChickenListResponse;
-import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
-import com.wakanda.chickeneggs.chicken.application.api.ChickenResponse;
+import com.wakanda.chickeneggs.chicken.application.api.*;
 import com.wakanda.chickeneggs.chicken.application.repository.ChickenRepository;
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
 import lombok.RequiredArgsConstructor;
@@ -53,5 +50,15 @@ public class ChickenApplicationService implements ChickenService {
         Chicken chicken = chickenRepository.getChickenPerId(idChicken);
         chickenRepository.deleteChickenPerId(chicken);
         log.info("[finish] ChickenApplicationService - deleteChickenPerId");
+    }
+
+    @Override
+    public void updateChickenPerId(UUID idChicken, ChickenUpdateRequest chickenUpdateRequest) {
+        log.info("[start] ChickenApplicationService - updateChickenPerId");
+        Chicken chicken = chickenRepository.getChickenPerId(idChicken);
+        chicken.update(chickenUpdateRequest);
+        chickenRepository.save(chicken);
+        log.info("[finish] ChickenApplicationService - updateChickenPerId");
+
     }
 }
