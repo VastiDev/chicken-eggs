@@ -25,8 +25,8 @@ public class EggsInfraRepository implements EggsRepository {
     @Override
     public List<Eggs> bringEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsInfraRepository - bringEggsPerChickenWithId");
+        var eggs = eggsSpringDataJPARepository.findByIdChickenLay(idChicken);
         log.info("[finish] EggsInfraRepository - bringEggsPerChickenWithId");
-
-        return null;
+        return eggs;
     }
 }
