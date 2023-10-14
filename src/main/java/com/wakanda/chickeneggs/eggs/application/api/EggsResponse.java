@@ -8,6 +8,6 @@ import java.util.UUID;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class EggsRecordResponse {
+public class EggsResponse {
     private UUID idDailyEggsRecord;
 }

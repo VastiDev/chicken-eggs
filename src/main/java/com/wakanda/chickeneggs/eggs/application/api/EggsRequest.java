@@ -11,7 +11,7 @@ import java.time.LocalDate;
 
 @Getter
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class EggsRecordRequest {
+public class EggsRequest {
     @NotNull
     private Integer eggsQuantity;
     @NotNull

@@ -8,11 +8,11 @@ import java.util.UUID;
 
 @RestController
 @RequestMapping("/v1/chicken/{idChicken}/eggs")
-public interface DailyEggsRecordAPI {
+public interface EggsAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
-    EggsRecordResponse postEggsRecord(@PathVariable UUID idChicken,
-                                      @Valid @RequestBody EggsRecordRequest eggsRecordRequest);
+    EggsResponse postEggs(@PathVariable UUID idChicken,
+                                      @Valid @RequestBody EggsRequest eggsRequest);
 
 
 }

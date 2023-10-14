@@ -14,14 +14,16 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor (access = AccessLevel.PUBLIC)
-public class DailyEggsRecord{
+public class Eggs{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name= "idDailyEggsRecord", updatable = false, unique = true, nullable = false)
-    private UUID idDailyEggsRecord;
+    @Column(columnDefinition = "uuid", name= "idEggs", updatable = false, unique = true, nullable = false)
+    private UUID idEggs;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "id_chicken", nullable = false)
     private Chicken chicken;
+
     @NotNull
     private Integer eggsQuantity;
     @NotNull
