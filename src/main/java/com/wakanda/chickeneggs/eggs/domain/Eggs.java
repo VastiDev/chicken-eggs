@@ -14,20 +14,18 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 @AllArgsConstructor (access = AccessLevel.PUBLIC)
-public class Eggs{
+public class Eggs {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name= "idEggs", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", name = "idEggs", updatable = false, unique = true, nullable = false)
     private UUID idEggs;
 
     @NotNull
-    @Column(columnDefinition = "uuid", name= "idChickenLay", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", name = "idChickenLay", updatable = false, unique = true, nullable = false)
     private UUID idChickenLay;
 
     @NotNull
     private Integer eggsQuantity;
     @NotNull
     private LocalDate hourDateRegistration;
-
-
 }
