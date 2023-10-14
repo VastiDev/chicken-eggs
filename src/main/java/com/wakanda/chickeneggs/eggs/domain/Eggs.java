@@ -1,6 +1,7 @@
 package com.wakanda.chickeneggs.eggs.domain;
 
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
+import com.wakanda.chickeneggs.eggs.application.api.EggsRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,4 +29,10 @@ public class Eggs {
     private Integer eggsQuantity;
     @NotNull
     private LocalDate hourDateRegistration;
+
+    public Eggs(UUID idChicken, EggsRequest eggsRequest) {
+        this.idChickenLay = idChicken;
+        this.eggsQuantity = eggsRequest.getEggsQuantity();
+        this.hourDateRegistration = eggsRequest.getHourDateRegistration();
+    }
 }
