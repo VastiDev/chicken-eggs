@@ -4,6 +4,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -12,7 +13,12 @@ public interface EggsAPI {
     @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     EggsResponse postEggs(@PathVariable UUID idChicken,
-                                      @Valid @RequestBody EggsRequest eggsRequest);
+                          @Valid @RequestBody EggsRequest eggsRequest);
+    @GetMapping
+    @ResponseStatus(code = HttpStatus.OK)
+    List<EggsChickenListResponse> getAllEggsFromChicken(@PathVariable UUID idChicken);
+
+
 
 
 }
