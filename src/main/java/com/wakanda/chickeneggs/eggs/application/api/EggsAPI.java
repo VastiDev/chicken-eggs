@@ -16,7 +16,7 @@ public interface EggsAPI {
                           @Valid @RequestBody EggsRequest eggsRequest);
     @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<EggsChickenListResponse> getAllEggsFromChicken(@PathVariable UUID idChicken);
+    EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken);
 
     @GetMapping(value = "/details")
     @ResponseStatus(code = HttpStatus.OK)

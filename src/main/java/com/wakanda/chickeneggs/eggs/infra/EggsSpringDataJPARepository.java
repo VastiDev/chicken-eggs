@@ -8,5 +8,5 @@ import java.util.UUID;
 
 public interface EggsSpringDataJPARepository extends JpaRepository<Eggs, UUID> {
 
-    List<Eggs> findByIdChickenLay(UUID idChickenLay);
+    Eggs findByIdChickenLay(UUID idChickenLay);
 }

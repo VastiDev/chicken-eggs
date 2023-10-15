@@ -10,7 +10,7 @@ import java.util.UUID;
 import java.util.stream.Collectors;
 
 @Value
-public class EggsChickenListResponse {
+public class EggsChickenDetailsResponse {
     private String nameChicken;
     @NotNull
     private UUID idEggs;
@@ -20,13 +20,7 @@ public class EggsChickenListResponse {
     private LocalDate hourDateRegistration;
 
 
-    public static List<EggsChickenListResponse> convert(List<Eggs> eggsPerChicken) {
-        return eggsPerChicken.stream()
-                .map(EggsChickenListResponse::new)
-                .collect(Collectors.toList());
-    }
-
-    public EggsChickenListResponse(Eggs eggs) {
+    public EggsChickenDetailsResponse(Eggs eggs) {
         this.idEggs = eggs.getIdEggs();
         this.nameChicken = eggs.getChicken().getNameChicken();
         this.eggsQuantity = eggs.getEggsQuantity();

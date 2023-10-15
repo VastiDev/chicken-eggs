@@ -2,7 +2,7 @@ package com.wakanda.chickeneggs.eggs.application.service;
 
 import com.wakanda.chickeneggs.chicken.application.service.ChickenService;
 import com.wakanda.chickeneggs.eggs.application.api.EggsChickenDetailedResponse;
-import com.wakanda.chickeneggs.eggs.application.api.EggsChickenListResponse;
+import com.wakanda.chickeneggs.eggs.application.api.EggsChickenDetailsResponse;
 import com.wakanda.chickeneggs.eggs.application.api.EggsRequest;
 import com.wakanda.chickeneggs.eggs.application.api.EggsResponse;
 import com.wakanda.chickeneggs.eggs.domain.Eggs;
@@ -30,12 +30,12 @@ public class EggsApplicationService implements EggsService {
     }
 
     @Override
-    public List<EggsChickenListResponse> bringEggsPerChickenWithId(UUID idChicken) {
+    public EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsApplicationService - bringEggsPerChickenWithId");
         chickenService.getChickenPerId(idChicken);
-        List<Eggs> eggsPerChicken = eggsRepository.bringEggsPerChickenWithId(idChicken);
+        Eggs eggs = (Eggs) eggsRepository.bringEggsPerChickenWithId(idChicken);
         log.info("[finish] EggsApplicationService - bringEggsPerChickenWithId");
-        return EggsChickenListResponse.convert(eggsPerChicken);
+        return new EggsChickenDetailsResponse(eggs);
     }
 
     @Override

@@ -24,10 +24,10 @@ public class EggsController implements EggsAPI {
     }
 
     @Override
-    public List<EggsChickenListResponse> getAllEggsFromChicken(UUID idChicken) {
+    public EggsChickenDetailsResponse getAllEggsFromChicken(UUID idChicken) {
         log.info("[start] EggsController - getAllEggsFromChicken");
         log.info("[idChicken] {}", idChicken);
-        List<EggsChickenListResponse> eggsPerChicken = eggsService.bringEggsPerChickenWithId(idChicken);
+        EggsChickenDetailsResponse eggsPerChicken = eggsService.bringEggsPerChickenWithId(idChicken);
         log.info("[finish] EggsController - getAllEggsFromChicken");
         return eggsPerChicken;
     }
