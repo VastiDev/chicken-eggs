@@ -9,16 +9,17 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1/chicken/{idChicken}/eggs")
+@RequestMapping("/v1/eggs")
 public interface EggsAPI {
-    @PostMapping
+    @PostMapping(value = "/chicken/{idChicken}")
     @ResponseStatus(code = HttpStatus.CREATED)
     EggsResponse postEggs(@PathVariable UUID idChicken,
                           @Valid @RequestBody EggsRequest eggsRequest);
-    @GetMapping
+    @GetMapping(value = "/chicken/{idChicken}")
     @ResponseStatus(code = HttpStatus.OK)
     EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken);
 
+    //sem função ainda
     @GetMapping(value = "/details")
     @ResponseStatus(code = HttpStatus.OK)
     EggsChickenDetailedResponse getEggsAndChickenPerId(@PathVariable UUID idChicken);
