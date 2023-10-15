@@ -49,4 +49,11 @@ public class EggsController implements EggsAPI {
 
     }
 
+    @Override
+    public void deleteEggsRecord(UUID idChicken, UUID idEggs) {
+        log.info("[start] EggsController - deleteEggsRecord");
+        log.info("[idChicken] {}", idChicken);
+        log.info("[finish] EggsController - deleteEggsRecord");
+    }
+
 }

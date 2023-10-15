@@ -29,4 +29,7 @@ public interface EggsAPI {
     void sumEggsDaily(@PathVariable UUID idChicken,
                             @Valid  EggsRecordRequest eggsRecordRequest);
 
+    @DeleteMapping(value = "/chicken/{idChicken}/eggs/{idEggs}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
 }
