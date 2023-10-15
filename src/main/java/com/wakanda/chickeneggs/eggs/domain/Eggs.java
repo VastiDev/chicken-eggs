@@ -40,4 +40,11 @@ public class Eggs {
         this.eggsQuantity = eggsRequest.getEggsQuantity();
         this.hourDateRegistration = eggsRequest.getHourDateRegistration();
     }
+    public void addEggs(int additionalEggs) {
+        if(additionalEggs < 0) {
+            throw new IllegalArgumentException("Cannot add negative number of eggs");
+        }
+        this.eggsQuantity += additionalEggs;
+    }
+
 }

@@ -48,4 +48,12 @@ public class EggsController implements EggsAPI {
         log.info("[finish] EggsController - getAllEggsRecords");
         return listAll;
     }
+
+    @Override
+    public void sumEggsDaily(UUID idChicken, EggsRecordRequest eggsRecordRequest) {
+        log.info("[start] EggsController - sumEggsDaily");
+        log.info("[finish] EggsController - sumEggsDaily");
+
+    }
+
 }

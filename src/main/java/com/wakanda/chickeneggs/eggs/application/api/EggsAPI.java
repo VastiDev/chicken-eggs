@@ -1,6 +1,7 @@
 package com.wakanda.chickeneggs.eggs.application.api;
 
 import com.wakanda.chickeneggs.chicken.application.api.ChickenListResponse;
+import com.wakanda.chickeneggs.chicken.application.api.ChickenUpdateRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,5 +27,10 @@ public interface EggsAPI {
     @GetMapping(value = "/list")
     @ResponseStatus(code = HttpStatus.OK)
     List<EggsRecordListResponse> getAllEggsRecords ();
+
+    @PatchMapping(value = "/chicken/{idChicken}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void sumEggsDaily(@PathVariable UUID idChicken,
+                            @Valid  EggsRecordRequest eggsRecordRequest);
 
 }
