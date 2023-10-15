@@ -40,4 +40,11 @@ public class EggsController implements EggsAPI {
         log.info("[start] EggsController - getEggsAndChickenPerId");
         return eggs;
     }
+
+    @Override
+    public List<EggsRecordListResponse> getAllEggsRecords() {
+        log.info("[start] EggsController - getAllEggsRecords");
+        log.info("[finish] EggsController - getAllEggsRecords");
+        return null;
+    }
 }
