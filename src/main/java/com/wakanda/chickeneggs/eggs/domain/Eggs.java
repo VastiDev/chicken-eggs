@@ -47,4 +47,6 @@ public class Eggs {
         this.eggsQuantity += additionalEggs;
     }
 
+    public void addEggs() {
+    }
 }

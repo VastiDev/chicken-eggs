@@ -48,7 +48,7 @@ public class EggsApplicationService implements EggsService {
         log.info("[start] EggsApplicationService - addEggsPerChicken");
         chickenService.getChickenPerId(idChicken);
         Eggs eggs = eggsRepository.bringEggsPerChickenWithId(idChicken);
-        eggs.addEggs(eggsRecordRequest);
+        eggs.addEggs();
         eggsRepository.saveEggs(eggs);
         log.info("[finish] EggsApplicationService - addEggsPerChicken");
     }
