@@ -33,15 +33,6 @@ public class EggsController implements EggsAPI {
     }
 
     @Override
-    public EggsChickenDetailedResponse getEggsAndChickenPerId(UUID idChicken) {
-        log.info("[start] EggsController - getEggsAndChickenPerId");
-        log.info("[idChicken] {}", idChicken);
-        EggsChickenDetailedResponse eggs = eggsService.bringEggsAndChickenName(idChicken);
-        log.info("[start] EggsController - getEggsAndChickenPerId");
-        return eggs;
-    }
-
-    @Override
     public List<EggsRecordListResponse> getAllEggsRecords() {
         log.info("[start] EggsController - getAllEggsRecords");
         List<EggsRecordListResponse> listAll = eggsService.bringAllRecords();
@@ -52,6 +43,8 @@ public class EggsController implements EggsAPI {
     @Override
     public void sumEggsDaily(UUID idChicken, EggsRecordRequest eggsRecordRequest) {
         log.info("[start] EggsController - sumEggsDaily");
+        log.info("[idChicken] {}", idChicken);
+        eggsService.addEggsPerChicken(idChicken, eggsRecordRequest);
         log.info("[finish] EggsController - sumEggsDaily");
 
     }

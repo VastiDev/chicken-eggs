@@ -36,19 +36,20 @@ public class EggsApplicationService implements EggsService {
     }
 
     @Override
-    public EggsChickenDetailedResponse bringEggsAndChickenName(UUID idChicken) {
-        log.info("[start] EggsApplicationService - bringEggsAndChickenName");
-        chickenService.getChickenPerId(idChicken);
-        Eggs eggs = eggsRepository.bringEggsAndChicken(idChicken);
-        log.info("[start] EggsApplicationService - bringEggsAndChickenName");
-        return new EggsChickenDetailedResponse(eggs);
-    }
-
-    @Override
     public List<EggsRecordListResponse> bringAllRecords() {
         log.info("[start] EggsApplicationService - bringAllRecords");
         List<Eggs> eggsRecord = eggsRepository.bringAllRecords();
         log.info("[finish] EggsApplicationService - bringAllRecords");
         return EggsRecordListResponse.convert(eggsRecord);
+    }
+
+    @Override
+    public void addEggsPerChicken(UUID idChicken, EggsRecordRequest eggsRecordRequest) {
+        log.info("[start] EggsApplicationService - addEggsPerChicken");
+        chickenService.getChickenPerId(idChicken);
+        Eggs eggs = eggsRepository.bringEggsPerChickenWithId(idChicken);
+        eggs.addEggs(eggsRecordRequest);
+        eggsRepository.saveEggs(eggs);
+        log.info("[finish] EggsApplicationService - addEggsPerChicken");
     }
 }

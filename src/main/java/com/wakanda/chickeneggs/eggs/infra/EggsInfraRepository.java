@@ -32,15 +32,6 @@ public class EggsInfraRepository implements EggsRepository {
         return eggs;
     }
 
-    @Override
-    public Eggs bringEggsAndChicken(UUID idChicken) {
-        log.info("[start] EggsInfraRepository - bringEggsAndChicken");
-        var eggs = eggsSpringDataJPARepository.findById(idChicken)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
-                        "Nâo foi encontrado registro de ovos para essa galinha"));
-        log.info("[finish] EggsInfraRepository - bringEggsAndChicken");
-        return eggs;
-    }
 
     @Override
     public List<Eggs> bringAllRecords() {

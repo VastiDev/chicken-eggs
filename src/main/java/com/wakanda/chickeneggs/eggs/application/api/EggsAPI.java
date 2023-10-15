@@ -20,10 +20,6 @@ public interface EggsAPI {
     @ResponseStatus(code = HttpStatus.OK)
     EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken);
 
-    //sem função ainda
-    @GetMapping(value = "/details")
-    @ResponseStatus(code = HttpStatus.OK)
-    EggsChickenDetailedResponse getEggsAndChickenPerId(@PathVariable UUID idChicken);
     @GetMapping(value = "/list")
     @ResponseStatus(code = HttpStatus.OK)
     List<EggsRecordListResponse> getAllEggsRecords ();

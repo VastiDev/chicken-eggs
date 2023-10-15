@@ -8,8 +8,5 @@ import java.util.UUID;
 public interface EggsRepository {
     Eggs saveEggs(Eggs eggs);
     Eggs bringEggsPerChickenWithId(UUID idChicken);
-
-    Eggs bringEggsAndChicken(UUID idChicken);
-
     List<Eggs> bringAllRecords();
 }
