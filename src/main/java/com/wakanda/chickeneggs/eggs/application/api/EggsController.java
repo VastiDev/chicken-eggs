@@ -36,7 +36,8 @@ public class EggsController implements EggsAPI {
     public EggsChickenDetailedResponse getEggsAndChickenPerId(UUID idChicken) {
         log.info("[start] EggsController - getEggsAndChickenPerId");
         log.info("[idChicken] {}", idChicken);
+        EggsChickenDetailedResponse eggs = eggsService.bringEggsAndChickenName(idChicken);
         log.info("[start] EggsController - getEggsAndChickenPerId");
-        return null;
+        return eggs;
     }
 }
