@@ -1,9 +1,6 @@
 package com.wakanda.chickeneggs.eggs.application.service;
 
-import com.wakanda.chickeneggs.eggs.application.api.EggsChickenDetailedResponse;
-import com.wakanda.chickeneggs.eggs.application.api.EggsChickenDetailsResponse;
-import com.wakanda.chickeneggs.eggs.application.api.EggsRequest;
-import com.wakanda.chickeneggs.eggs.application.api.EggsResponse;
+import com.wakanda.chickeneggs.eggs.application.api.*;
 
 import java.util.List;
 import java.util.UUID;
@@ -15,4 +12,6 @@ public interface EggsService {
     EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken);
 
     EggsChickenDetailedResponse bringEggsAndChickenName(UUID idChicken);
+
+    List<EggsRecordListResponse> bringAllRecords();
 }

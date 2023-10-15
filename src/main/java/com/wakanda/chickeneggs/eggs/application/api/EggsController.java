@@ -44,7 +44,8 @@ public class EggsController implements EggsAPI {
     @Override
     public List<EggsRecordListResponse> getAllEggsRecords() {
         log.info("[start] EggsController - getAllEggsRecords");
+        List<EggsRecordListResponse> listAll = eggsService.bringAllRecords();
         log.info("[finish] EggsController - getAllEggsRecords");
-        return null;
+        return listAll;
     }
 }

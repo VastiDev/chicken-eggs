@@ -1,10 +1,7 @@
 package com.wakanda.chickeneggs.eggs.application.service;
 
 import com.wakanda.chickeneggs.chicken.application.service.ChickenService;
-import com.wakanda.chickeneggs.eggs.application.api.EggsChickenDetailedResponse;
-import com.wakanda.chickeneggs.eggs.application.api.EggsChickenDetailsResponse;
-import com.wakanda.chickeneggs.eggs.application.api.EggsRequest;
-import com.wakanda.chickeneggs.eggs.application.api.EggsResponse;
+import com.wakanda.chickeneggs.eggs.application.api.*;
 import com.wakanda.chickeneggs.eggs.domain.Eggs;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
@@ -45,5 +42,12 @@ public class EggsApplicationService implements EggsService {
         Eggs eggs = eggsRepository.bringEggsAndChicken(idChicken);
         log.info("[start] EggsApplicationService - bringEggsAndChickenName");
         return new EggsChickenDetailedResponse(eggs);
+    }
+
+    @Override
+    public List<EggsRecordListResponse> bringAllRecords() {
+        log.info("[start] EggsApplicationService - bringAllRecords");
+        log.info("[finish] EggsApplicationService - bringAllRecords");
+        return null;
     }
 }
