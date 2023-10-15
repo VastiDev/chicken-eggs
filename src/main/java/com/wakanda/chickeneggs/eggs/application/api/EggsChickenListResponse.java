@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 @Value
 public class EggsChickenListResponse {
-
+    private String nameChicken;
     @NotNull
     private UUID idEggs;
     @NotNull
@@ -28,6 +28,7 @@ public class EggsChickenListResponse {
 
     public EggsChickenListResponse(Eggs eggs) {
         this.idEggs = eggs.getIdEggs();
+        this.nameChicken = eggs.getChicken().getNameChicken();
         this.eggsQuantity = eggs.getEggsQuantity();
         this.hourDateRegistration = eggs.getHourDateRegistration();
     }

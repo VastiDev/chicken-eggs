@@ -10,13 +10,13 @@ import java.util.UUID;
 @Value
 public class ChickenDetailedResponse {
     private UUID idChicken;
-    private String name;
+    private String nameChicken;
     private LocalDate birthDate;
     private LocalDateTime hourDateRegistration;
 
     public ChickenDetailedResponse(Chicken chicken) {
         this.idChicken = chicken.getIdChicken();
-        this.name = chicken.getName();
+        this.nameChicken = chicken.getNameChicken();
         this.birthDate =chicken.getBirthDate();
         this.hourDateRegistration = chicken.getHourDateRegistration();
     }

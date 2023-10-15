@@ -8,7 +8,7 @@ import java.time.LocalDate;
 @Value
 public class ChickenRequest {
     @NotBlank
-    private String name;
+    private String nameChicken;
     @NotNull
     private LocalDate birthDate;
 

@@ -5,6 +5,6 @@ import lombok.Value;
 import java.time.LocalDate;
 @Value
 public class ChickenUpdateRequest {
-    private String name;
+    private String nameChicken;
     private LocalDate birthDate;
 }

@@ -21,6 +21,10 @@ public class Eggs {
     @Column(columnDefinition = "uuid", name = "idEggs", updatable = false, unique = true, nullable = false)
     private UUID idEggs;
 
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "idChickenLay", referencedColumnName = "idChicken", nullable = false, insertable = false, updatable = false)
+    private Chicken chicken;
+
     @NotNull
     @Column(columnDefinition = "uuid", name = "idChickenLay", updatable = false, unique = true, nullable = false)
     private UUID idChickenLay;

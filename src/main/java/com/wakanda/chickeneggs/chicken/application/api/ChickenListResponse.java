@@ -12,7 +12,7 @@ import java.util.stream.Collectors;
 @Value
 public class ChickenListResponse {
     private UUID idChicken;
-    private String name;
+    private String nameChicken;
     private LocalDate birthDate;
     private LocalDateTime hourDateRegistration;
 
@@ -24,7 +24,7 @@ public class ChickenListResponse {
 
     public ChickenListResponse(Chicken chicken) {
         this.idChicken = chicken.getIdChicken();
-        this.name = chicken.getName();
+        this.nameChicken = chicken.getNameChicken();
         this.birthDate = chicken.getBirthDate();
         this.hourDateRegistration = chicken.getHourDateRegistration();
     }
