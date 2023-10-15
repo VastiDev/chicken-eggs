@@ -47,7 +47,8 @@ public class EggsApplicationService implements EggsService {
     @Override
     public List<EggsRecordListResponse> bringAllRecords() {
         log.info("[start] EggsApplicationService - bringAllRecords");
+        List<Eggs> eggsRecord = eggsRepository.bringAllRecords();
         log.info("[finish] EggsApplicationService - bringAllRecords");
-        return null;
+        return EggsRecordListResponse.convert(eggsRecord);
     }
 }

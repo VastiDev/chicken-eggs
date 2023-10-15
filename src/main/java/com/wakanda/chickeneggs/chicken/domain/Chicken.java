@@ -15,7 +15,7 @@ import java.util.UUID;
 
 @Getter
 @Entity
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)
 public class Chicken {
 

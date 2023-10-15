@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.UUID;
 
 @Repository
@@ -38,6 +39,14 @@ public class EggsInfraRepository implements EggsRepository {
                 .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
                         "Nâo foi encontrado registro de ovos para essa galinha"));
         log.info("[finish] EggsInfraRepository - bringEggsAndChicken");
+        return eggs;
+    }
+
+    @Override
+    public List<Eggs> bringAllRecords() {
+        log.info("[start] EggsInfraRepository - bringAllRecords");
+        var eggs = eggsSpringDataJPARepository.findAll();
+        log.info("[finish] EggsInfraRepository - bringAllRecords");
         return eggs;
     }
 }

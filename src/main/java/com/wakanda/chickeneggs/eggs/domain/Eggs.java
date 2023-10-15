@@ -34,6 +34,7 @@ public class Eggs {
     @NotNull
     private LocalDate hourDateRegistration;
 
+
     public Eggs(UUID idChicken, EggsRequest eggsRequest) {
         this.idChickenLay = idChicken;
         this.eggsQuantity = eggsRequest.getEggsQuantity();

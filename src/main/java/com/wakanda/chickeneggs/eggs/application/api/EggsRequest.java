@@ -10,8 +10,7 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 
-@Getter
-@NoArgsConstructor(access = AccessLevel.PUBLIC)
+@Value
 public class EggsRequest {
     @NotNull
     private Integer eggsQuantity;
