@@ -55,42 +55,15 @@ public class EggsApplicationService implements EggsService {
         log.info("[finish] EggsApplicationService - deleteEggsWithId");
     }
 
-    /*@Override
-    public EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken) {
-        log.info("[start] EggsApplicationService - bringEggsPerChickenWithId");
-        /*chickenService.getChickenPerId(idChicken);
-        Optional<Eggs> eggs = eggsRepository.bringAllRecords(idChicken);
-        log.info("[finish] EggsApplicationService - bringEggsPerChickenWithId");
-        return new EggsChickenDetailsResponse(eggs);
-        return null;
-    }
-
     @Override
-    public List<EggsRecordListResponse> bringAllRecords(UUID idChicken) {
-        log.info("[start] EggsApplicationService - bringAllRecords");
-        chickenService.getChickenPerId(idChicken);
-        Optional<Eggs> eggsRecord = eggsRepository.bringAllRecords(idChicken);
-        log.info("[finish] EggsApplicationService - bringAllRecords");
-        return EggsRecordListResponse.convert(eggsRecord);
-    }
-
-    @Override
-    public void addEggsPerChicken(UUID idChicken, UUID idEggs, EggsRecordRequest eggsRecordRequest) {
-        log.info("[start] EggsApplicationService - addEggsPerChicken");
+    public void patchEggsFromChicken(UUID idChicken, UUID idEggs, PatchEggsRequest patchEggsRequest) {
+        log.info("[start] EggsApplicationService - patchEggsFromChicken");
         chickenService.getChickenPerId(idChicken);
         Eggs eggs = eggsRepository.getEggsPerId(idEggs);
-        eggs.addEggs(eggsRecordRequest.getEggsQuantity());
-        log.info("[finish] EggsApplicationService - addEggsPerChicken");
+        eggs.patchEggs(patchEggsRequest);
+        eggsRepository.saveEggs(eggs);
+        log.info("[start] EggsApplicationService - patchEggsFromChicken");
     }
 
-
-    @Override
-    public void deleteEggsRecordPerChicken(UUID idChicken, UUID idEggs) {
-        log.info("[start] EggsApplicationService - deleteEggsRecordPerChicken");
-        chickenService.getChickenPerId(idChicken);
-        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
-        eggsRepository.deleteEggs(eggs);
-        log.info("[finish] EggsApplicationService - deleteEggsRecordPerChicken");
-    }*/
 }
 

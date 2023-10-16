@@ -12,7 +12,6 @@ public class EggsResponse {
     @NotNull
     private UUID idEggs;
 
-
     public EggsResponse(UUID idEggs) {
         this.idEggs = idEggs;
     }

@@ -7,7 +7,5 @@ import java.time.LocalDate;
 
 @Value
 public class PatchEggsRequest {
-
     private Integer eggsQuantity;
-
 }

@@ -52,12 +52,4 @@ public class EggsInfraRepository implements EggsRepository {
 
     }
 
-
-    /*@Override
-    public void deleteEggs(Eggs eggs) {
-        log.info("[start] EggsInfraRepository - deleteEggs");
-        eggsSpringDataJPARepository.delete(eggs);
-        log.info("[finish] EggsInfraRepository - deleteEggs");
-
-    }*/
 }

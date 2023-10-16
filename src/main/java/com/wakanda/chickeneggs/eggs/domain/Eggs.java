@@ -2,6 +2,7 @@ package com.wakanda.chickeneggs.eggs.domain;
 
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
 import com.wakanda.chickeneggs.eggs.application.api.EggsRequest;
+import com.wakanda.chickeneggs.eggs.application.api.PatchEggsRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -43,11 +44,7 @@ public class Eggs {
     }
 
 
-    public void addEggs(int additionalEggs) {
-        if(additionalEggs < 0) {
-            throw new IllegalArgumentException("Cannot add negative number of eggs");
-        }
-        this.eggsQuantity += additionalEggs;
+    public void patchEggs(PatchEggsRequest patchEggsRequest) {
+        this.eggsQuantity += patchEggsRequest.getEggsQuantity();
     }
-
 }

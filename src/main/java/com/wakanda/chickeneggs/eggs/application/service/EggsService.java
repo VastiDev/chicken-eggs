@@ -16,12 +16,6 @@ public interface EggsService {
 
     void deleteEggsWithId(UUID idChicken, UUID idEggs);
 
+    void patchEggsFromChicken(UUID idChicken, UUID idEggs, PatchEggsRequest patchEggsRequest);
 
-
-    /*EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken);
-
-
-    void addEggsPerChicken(UUID idChicken, UUID idEggs, EggsRecordRequest eggsRecordRequest);
-
-    void deleteEggsRecordPerChicken(UUID idChicken, UUID idEggs);*/
 }

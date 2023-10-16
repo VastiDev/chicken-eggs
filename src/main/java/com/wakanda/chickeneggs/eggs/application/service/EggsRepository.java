@@ -15,6 +15,4 @@ public interface EggsRepository {
 
     void deleteEggs(Eggs eggs);
 
-    /*Eggs getEggsPerId(UUID idEggs);
-    void deleteEggs(Eggs eggs);*/
 }
