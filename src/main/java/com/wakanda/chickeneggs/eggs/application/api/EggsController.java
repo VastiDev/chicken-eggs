@@ -1,7 +1,6 @@
 package com.wakanda.chickeneggs.eggs.application.api;
 
 import com.wakanda.chickeneggs.eggs.application.service.EggsService;
-import com.wakanda.chickeneggs.eggs.domain.Eggs;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
@@ -24,19 +23,19 @@ public class EggsController implements EggsAPI {
         return eggs;
     }
 
-    @Override
-    public EggsChickenDetailsResponse getAllEggsFromChicken(UUID idChicken, UUID idEggs) {
+    /*@Override
+    public EggsChickenDetailsResponse getAllEggsFromChicken(UUID idChicken) {
         log.info("[start] EggsController - getAllEggsFromChicken");
-        log.info("[idChicken] {} - [idEggs] {}", idChicken, idEggs);
-        EggsChickenDetailsResponse eggsPerChicken = eggsService.bringEggsPerChickenWithId(idChicken,idEggs);
+        log.info("[idChicken] {} ", idChicken);
+        EggsChickenDetailsResponse eggsPerChicken = eggsService.bringEggsPerChickenWithId(idChicken);
         log.info("[finish] EggsController - postEggs");
         return eggsPerChicken;
     }
 
     @Override
-    public List<EggsRecordListResponse> getAllEggsRecords() {
+    public List<EggsRecordListResponse> getAllEggsRecords(UUID idChicken) {
         log.info("[start] EggsController - getAllEggsRecords");
-        List<EggsRecordListResponse> listAll = eggsService.bringAllRecords();
+        List<EggsRecordListResponse> listAll = eggsService.bringAllRecords(idChicken);
         log.info("[finish] EggsController - getAllEggsRecords");
         return listAll;
     }
@@ -56,6 +55,6 @@ public class EggsController implements EggsAPI {
         log.info("[idChicken] {}", idChicken);
         eggsService.deleteEggsRecordPerChicken(idChicken,idEggs);
         log.info("[finish] EggsController - deleteEggsRecord");
-    }
+    }*/
 
 }

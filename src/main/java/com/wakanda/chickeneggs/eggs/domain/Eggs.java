@@ -13,7 +13,7 @@ import java.time.LocalDate;
 import java.util.UUID;
 @Getter
 @Entity
-@NoArgsConstructor(access = AccessLevel.PRIVATE)
+@NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor (access = AccessLevel.PUBLIC)
 public class Eggs {
     @Id
@@ -40,6 +40,8 @@ public class Eggs {
         this.eggsQuantity = eggsRequest.getEggsQuantity();
         this.hourDateRegistration = eggsRequest.getHourDateRegistration();
     }
+
+
     public void addEggs(int additionalEggs) {
         if(additionalEggs < 0) {
             throw new IllegalArgumentException("Cannot add negative number of eggs");
@@ -47,6 +49,4 @@ public class Eggs {
         this.eggsQuantity += additionalEggs;
     }
 
-    public void addEggs() {
-    }
 }

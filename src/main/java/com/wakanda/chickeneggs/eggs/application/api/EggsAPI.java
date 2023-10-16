@@ -10,19 +10,19 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1/chicken/{idChicken}/eggs")
+@RequestMapping("/v1/eggs/")
 public interface EggsAPI {
-    @PostMapping
+    @PostMapping("chicken/{idChicken}")
     @ResponseStatus(code = HttpStatus.CREATED)
     EggsResponse postEggs(@PathVariable UUID idChicken,
                           @Valid @RequestBody EggsRequest eggsRequest);
-    @GetMapping(value = "/{idEggs}")
+   /*@GetMapping(value = "chicken/{idChicken}")
     @ResponseStatus(code = HttpStatus.OK)
-    EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
+    List<EggsRecordListResponse> getAllEggsRecords (@PathVariable UUID idChicken);
 
-    @GetMapping
+    /*@GetMapping
     @ResponseStatus(code = HttpStatus.OK)
-    List<EggsRecordListResponse> getAllEggsRecords ();
+    EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken);
 
     @PatchMapping(value = "/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
@@ -31,5 +31,5 @@ public interface EggsAPI {
 
     @DeleteMapping(value = "/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
+    void deleteEggsRecord(@PathVariable UUID idChicken, chicken/{idChicken});*/
 }

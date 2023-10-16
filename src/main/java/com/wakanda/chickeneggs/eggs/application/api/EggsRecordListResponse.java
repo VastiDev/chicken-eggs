@@ -6,6 +6,7 @@ import lombok.Value;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 @Value
 public class EggsRecordListResponse {
@@ -16,7 +17,7 @@ public class EggsRecordListResponse {
 
 
 
-    public static List<EggsRecordListResponse> convert(List<Eggs> eggsRecord) {
+    public static List<EggsRecordListResponse> convert(Optional<Eggs> eggsRecord) {
         return eggsRecord.stream()
                 .map(EggsRecordListResponse::new)
                 .collect(Collectors.toList());
