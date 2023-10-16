@@ -45,21 +45,22 @@ public class EggsController implements EggsAPI {
     public void deleteEggsRecord(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsController - deleteEggsRecord");
         log.info("[idChicken] {} - [idEggs] {}", idChicken, idEggs);
+        eggsService.deleteEggsWithId(idChicken, idEggs);
         log.info("[finish] EggsController - deleteEggsRecord");
 
     }
 
-    /*@Override
-    public EggsChickenDetailsResponse getAllEggsFromChicken(UUID idChicken) {
-        log.info("[start] EggsController - getAllEggsFromChicken");
-        log.info("[idChicken] {} ", idChicken);
-        EggsChickenDetailsResponse eggsPerChicken = eggsService.bringEggsPerChickenWithId(idChicken);
-        log.info("[finish] EggsController - postEggs");
-        return eggsPerChicken;
+    @Override
+    public void patchEggsDaily(UUID idChicken, UUID idEggs, PatchEggsRequest patchEggsRequest) {
+        log.info("[start] EggsController - patchEggsDaily");
+        log.info("[idChicken] {} - [idEggs] {}", idChicken, idEggs);
+        log.info("[start] EggsController - patchEggsDaily");
     }
 
 
-    @Override
+
+
+    /*@Override
     public void patchEggsDaily(UUID idChicken, UUID idEggs, @Valid EggsRecordRequest eggsRecordRequest) {
         log.info("[start] EggsController - sumEggsDaily");
         log.info("[idChicken] {} - [idEggs] {}", idChicken, idEggs);

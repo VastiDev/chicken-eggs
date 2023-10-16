@@ -44,16 +44,16 @@ public class EggsInfraRepository implements EggsRepository {
         return eggs;
     }
 
+    @Override
+    public void deleteEggs(Eggs eggs) {
+        log.info("[start] EggsInfraRepository - deleteEggs");
+        eggsSpringDataJPARepository.delete(eggs);
+        log.info("[finish] EggsInfraRepository - deleteEggs");
 
-    /*@Override
-    public Optional<Eggs> bringAllRecords(UUID idChicken) {
-        log.info("[start] EggsInfraRepository - bringAllRecords");
-        var eggs = eggsSpringDataJPARepository.findById(idChicken);
-        log.info("[finish] EggsInfraRepository - bringAllRecords");
-        return eggs;
     }
 
-    @Override
+
+    /*@Override
     public void deleteEggs(Eggs eggs) {
         log.info("[start] EggsInfraRepository - deleteEggs");
         eggsSpringDataJPARepository.delete(eggs);

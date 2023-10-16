@@ -46,6 +46,15 @@ public class EggsApplicationService implements EggsService {
         return new EggsChickenDetailsResponse(eggs);
     }
 
+    @Override
+    public void deleteEggsWithId(UUID idChicken, UUID idEggs) {
+        log.info("[start] EggsApplicationService - deleteEggsWithId");
+        chickenService.getChickenPerId(idChicken);
+        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
+        eggsRepository.deleteEggs(eggs);
+        log.info("[finish] EggsApplicationService - deleteEggsWithId");
+    }
+
     /*@Override
     public EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsApplicationService - bringEggsPerChickenWithId");

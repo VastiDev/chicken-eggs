@@ -6,9 +6,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 @Value
-public class EggsRecordRequest {
-    @NotNull
+public class PatchEggsRequest {
+
     private Integer eggsQuantity;
-    @NotNull
-    private LocalDate hourDateRegistration;
+
 }

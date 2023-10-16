@@ -14,6 +14,8 @@ public interface EggsService {
 
     EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggs);
 
+    void deleteEggsWithId(UUID idChicken, UUID idEggs);
+
 
 
     /*EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken);

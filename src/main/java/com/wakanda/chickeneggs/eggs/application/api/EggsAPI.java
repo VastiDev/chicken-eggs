@@ -28,12 +28,10 @@ public interface EggsAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
 
-    /*@PatchMapping(value = "/{idEggs}")
+    @PatchMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void patchEggsDaily(@PathVariable UUID idChicken, @PathVariable UUID idEggs,
-                            @Valid @RequestBody EggsRecordRequest eggsRecordRequest);
+    void patchEggsDaily(@PathVariable UUID idChicken,@PathVariable UUID idEggs,
+                            @Valid  PatchEggsRequest patchEggsRequest);
 
-    @DeleteMapping(value = "/{idEggs}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deleteEggsRecord(@PathVariable UUID idChicken, chicken/{idChicken});*/
+
 }
