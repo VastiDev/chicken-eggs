@@ -27,10 +27,10 @@ public class EggsApplicationService implements EggsService {
     }
 
     @Override
-    public EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken) {
+    public EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsApplicationService - bringEggsPerChickenWithId");
         chickenService.getChickenPerId(idChicken);
-        Eggs eggs = (Eggs) eggsRepository.bringEggsPerChickenWithId(idChicken);
+        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
         log.info("[finish] EggsApplicationService - bringEggsPerChickenWithId");
         return new EggsChickenDetailsResponse(eggs);
     }
@@ -44,12 +44,23 @@ public class EggsApplicationService implements EggsService {
     }
 
     @Override
-    public void addEggsPerChicken(UUID idChicken, EggsRecordRequest eggsRecordRequest) {
+    public void addEggsPerChicken(UUID idChicken, UUID idEggs, EggsRecordRequest eggsRecordRequest) {
         log.info("[start] EggsApplicationService - addEggsPerChicken");
         chickenService.getChickenPerId(idChicken);
-        Eggs eggs = eggsRepository.bringEggsPerChickenWithId(idChicken);
+        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
         eggs.addEggs();
         eggsRepository.saveEggs(eggs);
         log.info("[finish] EggsApplicationService - addEggsPerChicken");
     }
+
+
+    @Override
+    public void deleteEggsRecordPerChicken(UUID idChicken, UUID idEggs) {
+        log.info("[start] EggsApplicationService - deleteEggsRecordPerChicken");
+       /* chickenService.getChickenPerId(idChicken);
+        Eggs eggs = eggsRepository.getEggsPerId(idPet);
+        eggsRepository.deleteEggsRecord*/
+        log.info("[finish] EggsApplicationService - deleteEggsRecordPerChicken");
+    }
 }
+

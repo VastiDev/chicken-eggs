@@ -9,4 +9,6 @@ public interface EggsRepository {
     Eggs saveEggs(Eggs eggs);
     Eggs bringEggsPerChickenWithId(UUID idChicken);
     List<Eggs> bringAllRecords();
+
+    Eggs getEggsPerId(UUID idEggs);
 }

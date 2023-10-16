@@ -10,26 +10,26 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1/eggs")
+@RequestMapping("/v1/chicken/{idChicken}/eggs")
 public interface EggsAPI {
-    @PostMapping(value = "/chicken/{idChicken}")
+    @PostMapping
     @ResponseStatus(code = HttpStatus.CREATED)
     EggsResponse postEggs(@PathVariable UUID idChicken,
                           @Valid @RequestBody EggsRequest eggsRequest);
-    @GetMapping(value = "/chicken/{idChicken}")
+    @GetMapping(value = "/{idEggs}")
     @ResponseStatus(code = HttpStatus.OK)
-    EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken);
+    EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
 
-    @GetMapping(value = "/list")
+    @GetMapping
     @ResponseStatus(code = HttpStatus.OK)
     List<EggsRecordListResponse> getAllEggsRecords ();
 
-    @PatchMapping(value = "/chicken/{idChicken}")
+    @PatchMapping(value = "/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void sumEggsDaily(@PathVariable UUID idChicken,
-                            @Valid  EggsRecordRequest eggsRecordRequest);
+    void patchEggsDaily(@PathVariable UUID idChicken, @PathVariable UUID idEggs,
+                            @Valid @RequestBody EggsRecordRequest eggsRecordRequest);
 
-    @DeleteMapping(value = "/chicken/{idChicken}/eggs/{idEggs}")
+    @DeleteMapping(value = "/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
 }
