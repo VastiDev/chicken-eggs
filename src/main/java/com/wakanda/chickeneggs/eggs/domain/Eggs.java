@@ -8,6 +8,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.UUID;
@@ -26,7 +27,7 @@ public class Eggs {
     private Chicken chicken;
 
     @NotNull
-    @Column(columnDefinition = "uuid", name = "idChickenLay", updatable = false, unique = true, nullable = false)
+    @Column(columnDefinition = "uuid", name = "idChickenLay", nullable = false)
     private UUID idChickenLay;
 
     @NotNull
@@ -35,7 +36,7 @@ public class Eggs {
     private LocalDate hourDateRegistration;
 
 
-    public Eggs(UUID idChicken, EggsRequest eggsRequest) {
+    public Eggs(UUID idChicken, @Valid EggsRequest eggsRequest) {
         this.idChickenLay = idChicken;
         this.eggsQuantity = eggsRequest.getEggsQuantity();
         this.hourDateRegistration = eggsRequest.getHourDateRegistration();

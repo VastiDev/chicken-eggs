@@ -10,9 +10,10 @@ import java.util.UUID;
 public interface EggsService {
     EggsResponse createEggs(UUID idChicken, @Valid EggsRequest eggsRequest);
 
+
+
     /*EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken);
 
-    List<EggsRecordListResponse> bringAllRecords(UUID idChicken);
 
     void addEggsPerChicken(UUID idChicken, UUID idEggs, EggsRecordRequest eggsRecordRequest);
 

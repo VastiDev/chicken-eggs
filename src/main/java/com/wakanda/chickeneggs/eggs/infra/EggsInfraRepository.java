@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
@@ -22,6 +23,19 @@ public class EggsInfraRepository implements EggsRepository {
         eggsSpringDataJPARepository.save(eggs);
         log.info("[finish] EggsInfraRepository - saveEggs");
         return eggs;
+    }
+
+    @Override
+    public List<Eggs> getEggsPerChickenPerId(UUID idChicken) {
+        return null;
+    }
+
+    /*@Override
+    public List<Eggs> getEggsPerChickenPerId(UUID idChicken) {
+        log.info("[start] EggsInfraRepository - getEggsPerChickenPerId");
+        var eggs = eggsSpringDataJPARepository.findByIdChickenLay(idChicken);
+        log.info("[start] EggsInfraRepository - getEggsPerChickenPerId");
+        return (List<Eggs>) eggs;
     }
     /*@Override
     public Eggs getEggsPerId(UUID idEggs) {

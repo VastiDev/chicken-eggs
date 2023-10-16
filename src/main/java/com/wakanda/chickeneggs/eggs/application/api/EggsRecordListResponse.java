@@ -16,9 +16,8 @@ public class EggsRecordListResponse {
     private LocalDate hourDateRegistration;
 
 
-
-    public static List<EggsRecordListResponse> convert(Optional<Eggs> eggsRecord) {
-        return eggsRecord.stream()
+    public static List<EggsRecordListResponse> convert(List<Eggs> eggsPerChicken) {
+        return eggsPerChicken.stream()
                 .map(EggsRecordListResponse::new)
                 .collect(Collectors.toList());
     }
