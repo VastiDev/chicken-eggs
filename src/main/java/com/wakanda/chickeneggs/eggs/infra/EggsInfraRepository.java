@@ -44,18 +44,8 @@ public class EggsInfraRepository implements EggsRepository {
         return eggs;
     }
 
+
     /*@Override
-    public Eggs getEggsPerId(UUID idEggs) {
-        log.info("[start] EggsInfraRepository - getEggsPerId");
-        Eggs eggs = eggsSpringDataJPARepository.findById(idEggs)
-                        .orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND,
-                                "Registro não encontrado para o idEggs= " + idEggs));
-        log.info("[finish] EggsInfraRepository - getEggsPerId");
-        return eggs;
-    }
-
-
-    @Override
     public Optional<Eggs> bringAllRecords(UUID idChicken) {
         log.info("[start] EggsInfraRepository - bringAllRecords");
         var eggs = eggsSpringDataJPARepository.findById(idChicken);

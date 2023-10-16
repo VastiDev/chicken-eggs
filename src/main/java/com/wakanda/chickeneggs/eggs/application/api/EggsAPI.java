@@ -24,6 +24,10 @@ public interface EggsAPI {
     @ResponseStatus(code = HttpStatus.OK)
     EggsChickenDetailsResponse getDetailedEggsFromChicken(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
 
+    @DeleteMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
+    @ResponseStatus(code = HttpStatus.NO_CONTENT)
+    void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
+
     /*@PatchMapping(value = "/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void patchEggsDaily(@PathVariable UUID idChicken, @PathVariable UUID idEggs,
