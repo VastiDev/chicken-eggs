@@ -29,7 +29,7 @@ public class EggsInfraRepository implements EggsRepository {
     @Override
     public List<Eggs> getEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsInfraRepository - getEggsPerChickenWithId");
-        var eggs = eggsSpringDataJPARepository.findAllById(Collections.singleton((idChicken)));
+        var eggs = eggsSpringDataJPARepository.findByIdChickenLay(idChicken);
         log.info("[finish] EggsInfraRepository - getEggsPerChickenWithId");
         return eggs;
     }
