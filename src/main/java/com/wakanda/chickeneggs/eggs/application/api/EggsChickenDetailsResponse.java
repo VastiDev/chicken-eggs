@@ -12,11 +12,8 @@ import java.util.stream.Collectors;
 @Value
 public class EggsChickenDetailsResponse {
     private String nameChicken;
-    @NotNull
     private UUID idEggs;
-    @NotNull
     private Integer eggsQuantity;
-    @NotNull
     private LocalDate hourDateRegistration;
 
 

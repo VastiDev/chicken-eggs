@@ -20,11 +20,11 @@ public interface EggsAPI {
     @ResponseStatus(code = HttpStatus.OK)
     List<EggsRecordListResponse> getAllEggsPerChicken(@PathVariable UUID idChicken);
 
-    /*@GetMapping
+    @GetMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
     @ResponseStatus(code = HttpStatus.OK)
-    EggsChickenDetailsResponse getAllEggsFromChicken(@PathVariable UUID idChicken);
+    EggsChickenDetailsResponse getDetailedEggsFromChicken(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
 
-    @PatchMapping(value = "/{idEggs}")
+    /*@PatchMapping(value = "/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void patchEggsDaily(@PathVariable UUID idChicken, @PathVariable UUID idEggs,
                             @Valid @RequestBody EggsRecordRequest eggsRecordRequest);

@@ -32,6 +32,15 @@ public class EggsController implements EggsAPI {
         return eggsPerChicken;
     }
 
+    @Override
+    public EggsChickenDetailsResponse getDetailedEggsFromChicken(UUID idChicken, UUID idEggs) {
+        log.info("[start] EggsController - getDetailedEggsFromChicken");
+        log.info("[idChicken] {} - [idPet] {} ", idChicken, idEggs);
+        log.info("[start] EggsController - getDetailedEggsFromChicken");
+
+        return null;
+    }
+
     /*@Override
     public EggsChickenDetailsResponse getAllEggsFromChicken(UUID idChicken) {
         log.info("[start] EggsController - getAllEggsFromChicken");
