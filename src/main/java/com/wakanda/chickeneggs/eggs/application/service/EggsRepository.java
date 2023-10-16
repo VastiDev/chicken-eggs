@@ -11,6 +11,8 @@ public interface EggsRepository {
 
     List<Eggs> getEggsPerChickenWithId(UUID idChicken);
 
+    Eggs getEggsPerId(UUID idEggs);
+
     /*Eggs getEggsPerId(UUID idEggs);
     void deleteEggs(Eggs eggs);*/
 }

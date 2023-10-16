@@ -40,8 +40,10 @@ public class EggsApplicationService implements EggsService {
     @Override
     public EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsApplicationService - getDetailsEggsPerChickenWithId");
+        chickenService.getChickenPerId(idChicken);
+        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
         log.info("[finish] EggsApplicationService - getDetailsEggsPerChickenWithId");
-        return null;
+        return new EggsChickenDetailsResponse(eggs);
     }
 
     /*@Override

@@ -34,13 +34,16 @@ public class EggsInfraRepository implements EggsRepository {
         return eggs;
     }
 
-    /*@Override
-    public List<Eggs> getEggsPerChickenPerId(UUID idChicken) {
-        log.info("[start] EggsInfraRepository - getEggsPerChickenPerId");
-        var eggs = eggsSpringDataJPARepository.findByIdChickenLay(idChicken);
-        log.info("[start] EggsInfraRepository - getEggsPerChickenPerId");
-        return (List<Eggs>) eggs;
+    @Override
+    public Eggs getEggsPerId(UUID idEggs) {
+        log.info("[start] EggsInfraRepository - getEggsPerId");
+        var eggs = eggsSpringDataJPARepository.findById(idEggs)
+                        .orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND,
+                                "Registro não encontrado para este idEggs=" + idEggs));
+        log.info("[finish] EggsInfraRepository - getEggsPerId");
+        return eggs;
     }
+
     /*@Override
     public Eggs getEggsPerId(UUID idEggs) {
         log.info("[start] EggsInfraRepository - getEggsPerId");
