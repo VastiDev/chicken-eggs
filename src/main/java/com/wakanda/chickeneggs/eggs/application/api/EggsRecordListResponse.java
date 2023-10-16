@@ -10,10 +10,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 @Value
 public class EggsRecordListResponse {
-    @NotNull
     private Integer eggsQuantity;
-    @NotNull
-    private LocalDate hourDateRegistration;
 
 
     public static List<EggsRecordListResponse> convert(List<Eggs> eggsPerChicken) {
@@ -24,7 +21,6 @@ public class EggsRecordListResponse {
 
     public EggsRecordListResponse(Eggs eggs) {
         this.eggsQuantity = eggs.getEggsQuantity();
-        this.hourDateRegistration = eggs.getHourDateRegistration();
 
     }
 }
