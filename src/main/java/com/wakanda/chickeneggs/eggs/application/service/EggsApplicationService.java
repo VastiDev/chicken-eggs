@@ -28,6 +28,15 @@ public class EggsApplicationService implements EggsService {
         return new EggsResponse(eggs.getIdEggs());
     }
 
+    @Override
+    public List<EggsRecordListResponse> getEggsPerChickenWithId(UUID idChicken) {
+        log.info("[start] EggsApplicationService - getEggsPerChickenWithId");
+        chickenService.getChickenPerId(idChicken);
+        List<Eggs> eggsPerChicken = eggsRepository.getEggsPerChickenWithId(idChicken);
+        log.info("[finish] EggsApplicationService - getEggsPerChickenWithId");
+        return EggsRecordListResponse.convert(eggsPerChicken);
+    }
+
     /*@Override
     public List<EggsRecordListResponse> bringAllRecords(UUID idChicken) {
         log.info("[start] EggsApplicationService - bringAllRecords");

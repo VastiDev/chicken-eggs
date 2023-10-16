@@ -26,7 +26,9 @@ public class EggsInfraRepository implements EggsRepository {
     }
 
     @Override
-    public List<Eggs> getEggsPerChickenPerId(UUID idChicken) {
+    public List<Eggs> getEggsPerChickenWithId(UUID idChicken) {
+        log.info("[start] EggsInfraRepository - getEggsPerChickenWithId");
+        log.info("[finish] EggsInfraRepository - getEggsPerChickenWithId");
         return null;
     }
 

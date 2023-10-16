@@ -27,9 +27,9 @@ public class EggsController implements EggsAPI {
     public List<EggsRecordListResponse> getAllEggsPerChicken(UUID idChicken) {
         log.info("[start] EggsController - getAllEggsRecords");
         log.info("[idChicken] {} ", idChicken);
-        //List<EggsRecordListResponse> listAll = eggsService.bringAllRecords(idChicken);
+        List<EggsRecordListResponse> eggsPerChicken = eggsService.getEggsPerChickenWithId(idChicken);
         log.info("[finish] EggsController - getAllEggsRecords");
-        return null;
+        return eggsPerChicken;
     }
 
     /*@Override

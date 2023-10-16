@@ -9,7 +9,7 @@ import java.util.UUID;
 public interface EggsRepository {
     Eggs saveEggs(Eggs eggs);
 
-    List<Eggs> getEggsPerChickenPerId(UUID idChicken);
+    List<Eggs> getEggsPerChickenWithId(UUID idChicken);
 
     /*Eggs getEggsPerId(UUID idEggs);
     void deleteEggs(Eggs eggs);*/
