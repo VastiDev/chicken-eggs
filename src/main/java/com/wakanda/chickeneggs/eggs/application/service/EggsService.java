@@ -12,6 +12,8 @@ public interface EggsService {
 
     List<EggsRecordListResponse> getEggsPerChickenWithId(UUID idChicken);
 
+    EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggs);
+
 
 
     /*EggsChickenDetailsResponse bringEggsPerChickenWithId(UUID idChicken);
