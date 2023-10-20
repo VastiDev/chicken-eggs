@@ -50,15 +50,6 @@ public class ChickenApplicationService implements ChickenService {
         Chicken chicken = chickenRepository.getChickenPerId(idChicken);
         chickenRepository.deleteChickenPerId(chicken);
         log.info("[finish] ChickenApplicationService - deleteChickenPerId");
-    }
-
-    @Override
-    public void updateChickenPerId(UUID idChicken, ChickenUpdateRequest chickenUpdateRequest) {
-        log.info("[start] ChickenApplicationService - updateChickenPerId");
-        Chicken chicken = chickenRepository.getChickenPerId(idChicken);
-        chicken.update(chickenUpdateRequest);
-        chickenRepository.save(chicken);
-        log.info("[finish] ChickenApplicationService - updateChickenPerId");
 
     }
 }

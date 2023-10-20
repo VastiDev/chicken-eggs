@@ -1,8 +1,7 @@
-package com.wakanda.chickeneggs.eggs.domain;
+package com.wakanda.chickeneggs.eggsRecord.domain;
 
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
-import com.wakanda.chickeneggs.eggs.application.api.EggsRequest;
-import com.wakanda.chickeneggs.eggs.application.api.PatchEggsRequest;
+import com.wakanda.chickeneggs.eggsRecord.application.api.EggsRecordRequest;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -17,11 +16,11 @@ import java.util.UUID;
 @Entity
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor (access = AccessLevel.PUBLIC)
-public class Eggs {
+public class EggsRecord {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(columnDefinition = "uuid", name = "idEggs", updatable = false, unique = true, nullable = false)
-    private UUID idEggs;
+    @Column(columnDefinition = "uuid", name = "idEggsRecord", updatable = false, unique = true, nullable = false)
+    private UUID idEggsRecord;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "idChickenLay", referencedColumnName = "idChicken", nullable = false, insertable = false, updatable = false)
@@ -37,14 +36,9 @@ public class Eggs {
     private LocalDate hourDateRegistration;
 
 
-    public Eggs(UUID idChicken, @Valid EggsRequest eggsRequest) {
+    public EggsRecord(UUID idChicken, @Valid EggsRecordRequest eggsRecordRequest) {
         this.idChickenLay = idChicken;
-        this.eggsQuantity = eggsRequest.getEggsQuantity();
-        this.hourDateRegistration = eggsRequest.getHourDateRegistration();
-    }
-
-
-    public void patchEggs(PatchEggsRequest patchEggsRequest) {
-        this.eggsQuantity += patchEggsRequest.getEggsQuantity();
+        this.eggsQuantity = eggsRecordRequest.getEggsQuantity();
+        this.hourDateRegistration = eggsRecordRequest.getHourDateRegistration();
     }
 }

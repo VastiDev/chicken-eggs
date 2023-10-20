@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.wakanda</groupId>
-	<artifactId>chicken-eggs</artifactId>
+	<artifactId>chicken-eggsRecord</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>chicken-eggs</name>
+	<name>chicken-eggsRecord</name>
 	<description>Project using Spring Boot and H2 Database</description>
 	<properties>
 		<java.version>11</java.version>

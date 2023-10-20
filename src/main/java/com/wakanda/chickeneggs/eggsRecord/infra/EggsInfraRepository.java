@@ -1,16 +1,14 @@
-package com.wakanda.chickeneggs.eggs.infra;
+package com.wakanda.chickeneggs.eggsRecord.infra;
 
-import com.wakanda.chickeneggs.eggs.application.service.EggsRepository;
-import com.wakanda.chickeneggs.eggs.domain.Eggs;
+import com.wakanda.chickeneggs.eggsRecord.application.service.EggsRepository;
+import com.wakanda.chickeneggs.eggsRecord.domain.EggsRecord;
 import com.wakanda.chickeneggs.handler.APIException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
-import java.util.Collections;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 @Repository
@@ -19,15 +17,15 @@ import java.util.UUID;
 public class EggsInfraRepository implements EggsRepository {
     private final EggsSpringDataJPARepository eggsSpringDataJPARepository;
     @Override
-    public Eggs saveEggs(Eggs eggs) {
+    public EggsRecord saveEggs(EggsRecord eggsRecord) {
         log.info("[start] EggsInfraRepository - saveEggs");
-        eggsSpringDataJPARepository.save(eggs);
+        eggsSpringDataJPARepository.save(eggsRecord);
         log.info("[finish] EggsInfraRepository - saveEggs");
-        return eggs;
+        return eggsRecord;
     }
 
-    @Override
-    public List<Eggs> getEggsPerChickenWithId(UUID idChicken) {
+    /*@Override
+    public List<EggsRecord> getEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsInfraRepository - getEggsPerChickenWithId");
         var eggs = eggsSpringDataJPARepository.findByIdChickenLay(idChicken);
         log.info("[finish] EggsInfraRepository - getEggsPerChickenWithId");
@@ -35,7 +33,7 @@ public class EggsInfraRepository implements EggsRepository {
     }
 
     @Override
-    public Eggs getEggsPerId(UUID idEggs) {
+    public EggsRecord getEggsPerId(UUID idEggs) {
         log.info("[start] EggsInfraRepository - getEggsPerId");
         var eggs = eggsSpringDataJPARepository.findById(idEggs)
                         .orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND,
@@ -45,11 +43,11 @@ public class EggsInfraRepository implements EggsRepository {
     }
 
     @Override
-    public void deleteEggs(Eggs eggs) {
+    public void deleteEggs(EggsRecord eggsRecord) {
         log.info("[start] EggsInfraRepository - deleteEggs");
-        eggsSpringDataJPARepository.delete(eggs);
+        eggsSpringDataJPARepository.delete(eggsRecord);
         log.info("[finish] EggsInfraRepository - deleteEggs");
 
-    }
+    }*/
 
 }

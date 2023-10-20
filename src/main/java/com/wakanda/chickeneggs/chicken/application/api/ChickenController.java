@@ -50,11 +50,4 @@ public class ChickenController implements ChickenAPI{
 
     }
 
-    @Override
-    public void updateChickenPerId(UUID idChicken, ChickenUpdateRequest chickenUpdateRequest) {
-        log.info("[start] ChickenController - updateChickenPerId");
-        chickenService.updateChickenPerId(idChicken, chickenUpdateRequest);
-        log.info("[finish] ChickenController - updateChickenPerId");
-
-    }
 }

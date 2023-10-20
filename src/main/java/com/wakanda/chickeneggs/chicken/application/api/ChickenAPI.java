@@ -32,8 +32,4 @@ public interface ChickenAPI {
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteChickenPerId(@PathVariable UUID idChicken);
 
-    @PatchMapping(value = "/{idChicken}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void updateChickenPerId(@PathVariable UUID idChicken,
-                            @Valid @RequestBody ChickenUpdateRequest chickenUpdateRequest);
 }

@@ -1,11 +1,10 @@
-package com.wakanda.chickeneggs.eggs.application.api;
+package com.wakanda.chickeneggs.eggsRecord.application.api;
 
-import com.wakanda.chickeneggs.eggs.application.service.EggsService;
+import com.wakanda.chickeneggs.eggsRecord.application.service.EggsService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 import java.util.UUID;
 @RestController
@@ -15,15 +14,15 @@ public class EggsController implements EggsAPI {
     private final EggsService eggsService;
 
     @Override
-    public EggsResponse postEggs(UUID idChicken, EggsRequest eggsRequest) {
+    public EggsRecordResponse postEggsRecord(UUID idChicken, EggsRecordRequest eggsRecordRequest) {
         log.info("[start] EggsController - postEggs");
         log.info("[idChicken] {}", idChicken);
-        EggsResponse eggs = eggsService.createEggs(idChicken, eggsRequest);
+        EggsRecordResponse eggs = eggsService.createEggs(idChicken, eggsRecordRequest);
         log.info("[finish] EggsController - postEggs");
         return eggs;
     }
 
-    @Override
+    /*@Override
     public List<EggsRecordListResponse> getAllEggsPerChicken(UUID idChicken) {
         log.info("[start] EggsController - getAllEggsRecords");
         log.info("[idChicken] {} ", idChicken);
@@ -56,5 +55,5 @@ public class EggsController implements EggsAPI {
         log.info("[idChicken] {} - [idEggs] {}", idChicken, idEggs);
         eggsService.patchEggsFromChicken(idChicken, idEggs, patchEggsRequest);
         log.info("[start] EggsController - patchEggsDaily");
-    }
+    }*/
 }

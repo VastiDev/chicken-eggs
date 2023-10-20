@@ -1,15 +1,14 @@
-package com.wakanda.chickeneggs.eggs.application.service;
+package com.wakanda.chickeneggs.eggsRecord.application.service;
 
 import com.wakanda.chickeneggs.chicken.application.service.ChickenService;
-import com.wakanda.chickeneggs.eggs.application.api.*;
-import com.wakanda.chickeneggs.eggs.domain.Eggs;
+import com.wakanda.chickeneggs.eggsRecord.application.api.*;
+import com.wakanda.chickeneggs.eggsRecord.domain.EggsRecord;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 @Service
 @Log4j2
@@ -19,39 +18,39 @@ public class EggsApplicationService implements EggsService {
     private final EggsRepository eggsRepository;
 
     @Override
-    public EggsResponse createEggs(UUID idChicken, @Valid EggsRequest eggsRequest) {
+    public EggsRecordResponse createEggs(UUID idChicken, @Valid EggsRecordRequest eggsRequest) {
         log.info("[start] EggsApplicationService - createEggs");
         log.info("[idChicken] {}", idChicken);
         chickenService.getChickenPerId(idChicken);
-        Eggs eggs = eggsRepository.saveEggs(new Eggs(idChicken, eggsRequest));
+        EggsRecord eggsRecord = eggsRepository.saveEggs(new EggsRecord(idChicken, eggsRequest));
         log.info("[finish] EggsApplicationService - createEggs");
-        return new EggsResponse(eggs.getIdEggs());
+        return new EggsRecordResponse(eggsRecord.getIdEggsRecord());
     }
 
-    @Override
+    /*@Override
     public List<EggsRecordListResponse> getEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsApplicationService - getEggsPerChickenWithId");
         chickenService.getChickenPerId(idChicken);
-        List<Eggs> eggsPerChicken = eggsRepository.getEggsPerChickenWithId(idChicken);
+        List<EggsRecord> eggsRecordPerChicken = eggsRepository.getEggsPerChickenWithId(idChicken);
         log.info("[finish] EggsApplicationService - getEggsPerChickenWithId");
-        return EggsRecordListResponse.convert(eggsPerChicken);
+        return EggsRecordListResponse.convert(eggsRecordPerChicken);
     }
 
     @Override
     public EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsApplicationService - getDetailsEggsPerChickenWithId");
         chickenService.getChickenPerId(idChicken);
-        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
+        EggsRecord eggsRecord = eggsRepository.getEggsPerId(idEggs);
         log.info("[finish] EggsApplicationService - getDetailsEggsPerChickenWithId");
-        return new EggsChickenDetailsResponse(eggs);
+        return new EggsChickenDetailsResponse(eggsRecord);
     }
 
     @Override
     public void deleteEggsWithId(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsApplicationService - deleteEggsWithId");
         chickenService.getChickenPerId(idChicken);
-        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
-        eggsRepository.deleteEggs(eggs);
+        EggsRecord eggsRecord = eggsRepository.getEggsPerId(idEggs);
+        eggsRepository.deleteEggs(eggsRecord);
         log.info("[finish] EggsApplicationService - deleteEggsWithId");
     }
 
@@ -59,11 +58,11 @@ public class EggsApplicationService implements EggsService {
     public void patchEggsFromChicken(UUID idChicken, UUID idEggs, PatchEggsRequest patchEggsRequest) {
         log.info("[start] EggsApplicationService - patchEggsFromChicken");
         chickenService.getChickenPerId(idChicken);
-        Eggs eggs = eggsRepository.getEggsPerId(idEggs);
-        eggs.patchEggs(patchEggsRequest);
-        eggsRepository.saveEggs(eggs);
+        EggsRecord eggsRecord = eggsRepository.getEggsPerId(idEggs);
+        eggsRecord.patchEggs(patchEggsRequest);
+        eggsRepository.saveEggs(eggsRecord);
         log.info("[start] EggsApplicationService - patchEggsFromChicken");
-    }
+    }*/
 
 }
 

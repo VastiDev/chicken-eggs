@@ -1,7 +1,5 @@
-package com.wakanda.chickeneggs.eggs.application.api;
+package com.wakanda.chickeneggs.eggsRecord.application.api;
 
-import com.wakanda.chickeneggs.chicken.application.api.ChickenListResponse;
-import com.wakanda.chickeneggs.chicken.application.api.ChickenUpdateRequest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,13 +8,13 @@ import java.util.List;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/v1/eggs/")
+@RequestMapping("/v1/eggsRecord/")
 public interface EggsAPI {
     @PostMapping("chicken/{idChicken}")
     @ResponseStatus(code = HttpStatus.CREATED)
-    EggsResponse postEggs(@PathVariable UUID idChicken,
-                          @Valid @RequestBody EggsRequest eggsRequest);
-   @GetMapping(value = "chicken/{idChicken}")
+    EggsRecordResponse postEggsRecord(@PathVariable UUID idChicken,
+                          @Valid @RequestBody EggsRecordRequest eggsRecordRequest);
+   /*@GetMapping(value = "chicken/{idChicken}")
     @ResponseStatus(code = HttpStatus.OK)
     List<EggsRecordListResponse> getAllEggsPerChicken(@PathVariable UUID idChicken);
 
@@ -31,7 +29,7 @@ public interface EggsAPI {
     @PatchMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void patchEggsDaily(@PathVariable UUID idChicken,@PathVariable UUID idEggs,
-                            @Valid  PatchEggsRequest patchEggsRequest);
+                            @Valid  PatchEggsRequest patchEggsRequest);*/
 
 
 }

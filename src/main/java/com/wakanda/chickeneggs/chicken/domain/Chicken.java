@@ -1,7 +1,6 @@
 package com.wakanda.chickeneggs.chicken.domain;
 
 import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
-import com.wakanda.chickeneggs.chicken.application.api.ChickenUpdateRequest;
 import lombok.*;
 
 import javax.persistence.*;
@@ -38,10 +37,4 @@ public class Chicken {
         this.hourDateRegistration = LocalDateTime.now();
     }
 
-    public void update(ChickenUpdateRequest chickenUpdaterequest) {
-        this.nameChicken = chickenUpdaterequest.getNameChicken();
-        this.birthDate = chickenUpdaterequest.getBirthDate();
-        this.hourDateLastChange = LocalDateTime.now();
-
-    }
 }

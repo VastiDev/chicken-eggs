@@ -14,5 +14,4 @@ public interface ChickenService {
 
     void deleteChickenPerId(UUID idChicken);
 
-    void updateChickenPerId(UUID idChicken, ChickenUpdateRequest chickenUpdateRequest);
 }
