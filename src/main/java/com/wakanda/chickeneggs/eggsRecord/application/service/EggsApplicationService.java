@@ -27,7 +27,7 @@ public class EggsApplicationService implements EggsService {
         return new EggsRecordResponse(eggsRecord.getIdEggsRecord());
     }
 
-    /*@Override
+    @Override
     public List<EggsRecordListResponse> getEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsApplicationService - getEggsPerChickenWithId");
         chickenService.getChickenPerId(idChicken);
@@ -36,7 +36,7 @@ public class EggsApplicationService implements EggsService {
         return EggsRecordListResponse.convert(eggsRecordPerChicken);
     }
 
-    @Override
+    /*@Override
     public EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsApplicationService - getDetailsEggsPerChickenWithId");
         chickenService.getChickenPerId(idChicken);

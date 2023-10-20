@@ -14,11 +14,12 @@ public interface EggsAPI {
     @ResponseStatus(code = HttpStatus.CREATED)
     EggsRecordResponse postEggsRecord(@PathVariable UUID idChicken,
                           @Valid @RequestBody EggsRecordRequest eggsRecordRequest);
-   /*@GetMapping(value = "chicken/{idChicken}")
+
+   @GetMapping(value = "chicken/{idChicken}")
     @ResponseStatus(code = HttpStatus.OK)
     List<EggsRecordListResponse> getAllEggsPerChicken(@PathVariable UUID idChicken);
 
-    @GetMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
+    /*@GetMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
     @ResponseStatus(code = HttpStatus.OK)
     EggsChickenDetailsResponse getDetailedEggsFromChicken(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
 

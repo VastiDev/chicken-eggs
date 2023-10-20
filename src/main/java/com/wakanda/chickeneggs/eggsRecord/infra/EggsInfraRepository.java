@@ -24,7 +24,7 @@ public class EggsInfraRepository implements EggsRepository {
         return eggsRecord;
     }
 
-    /*@Override
+    @Override
     public List<EggsRecord> getEggsPerChickenWithId(UUID idChicken) {
         log.info("[start] EggsInfraRepository - getEggsPerChickenWithId");
         var eggs = eggsSpringDataJPARepository.findByIdChickenLay(idChicken);
@@ -32,7 +32,7 @@ public class EggsInfraRepository implements EggsRepository {
         return eggs;
     }
 
-    @Override
+    /*@Override
     public EggsRecord getEggsPerId(UUID idEggs) {
         log.info("[start] EggsInfraRepository - getEggsPerId");
         var eggs = eggsSpringDataJPARepository.findById(idEggs)

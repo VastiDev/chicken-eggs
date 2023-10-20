@@ -3,11 +3,13 @@ package com.wakanda.chickeneggs.eggsRecord.application.api;
 import com.wakanda.chickeneggs.eggsRecord.domain.EggsRecord;
 import lombok.Value;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.stream.Collectors;
 @Value
 public class EggsRecordListResponse {
     private Integer eggsQuantity;
+    private LocalDate hourDateRegistration;
 
 
     public static List<EggsRecordListResponse> convert(List<EggsRecord> eggsRecordPerChicken) {
@@ -18,6 +20,7 @@ public class EggsRecordListResponse {
 
     public EggsRecordListResponse(EggsRecord eggsRecord) {
         this.eggsQuantity = eggsRecord.getEggsQuantity();
+        this.hourDateRegistration = eggsRecord.getHourDateRegistration();
 
     }
 }

@@ -22,7 +22,7 @@ public class EggsController implements EggsAPI {
         return eggs;
     }
 
-    /*@Override
+    @Override
     public List<EggsRecordListResponse> getAllEggsPerChicken(UUID idChicken) {
         log.info("[start] EggsController - getAllEggsRecords");
         log.info("[idChicken] {} ", idChicken);
@@ -31,7 +31,7 @@ public class EggsController implements EggsAPI {
         return eggsPerChicken;
     }
 
-    @Override
+    /*@Override
     public EggsChickenDetailsResponse getDetailedEggsFromChicken(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsController - getDetailedEggsFromChicken");
         log.info("[idChicken] {} - [idPet] {} ", idChicken, idEggs);

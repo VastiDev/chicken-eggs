@@ -8,9 +8,10 @@ import java.util.UUID;
 public interface EggsRepository {
     EggsRecord saveEggs(EggsRecord eggsRecord);
 
-    /*List<EggsRecord> getEggsPerChickenWithId(UUID idChicken);
+    List<EggsRecord> getEggsPerChickenWithId(UUID idChicken);
 
-    EggsRecord getEggsPerId(UUID idEggs);
+
+    /*EggsRecord getEggsPerId(UUID idEggs);
 
     void deleteEggs(EggsRecord eggsRecord);*/
 
