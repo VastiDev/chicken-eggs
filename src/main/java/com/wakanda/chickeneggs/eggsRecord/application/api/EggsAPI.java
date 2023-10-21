@@ -26,4 +26,8 @@ public interface EggsAPI {
     @DeleteMapping(value = "chicken/{idChicken}/eggs/{idEggsRecord}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
     void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggsRecord);
+
+    @GetMapping(value = "listAll")
+    @ResponseStatus(code = HttpStatus.OK)
+    List<listTotalEggsRecords> getAllEggsRecords();
 }

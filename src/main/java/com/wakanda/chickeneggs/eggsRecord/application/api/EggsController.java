@@ -48,4 +48,11 @@ public class EggsController implements EggsAPI {
         log.info("[finish] EggsController - deleteEggsRecord");
 
     }
+
+    @Override
+    public List<listTotalEggsRecords> getAllEggsRecords() {
+        log.info("[start] EggsController - getAllEggsRecords");
+        log.info("[finish] EggsController - getAllEggsRecords");
+        return null;
+    }
 }
