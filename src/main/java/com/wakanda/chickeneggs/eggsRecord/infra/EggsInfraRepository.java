@@ -16,6 +16,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class EggsInfraRepository implements EggsRepository {
     private final EggsSpringDataJPARepository eggsSpringDataJPARepository;
+
     @Override
     public EggsRecord saveEggs(EggsRecord eggsRecord) {
         log.info("[start] EggsInfraRepository - saveEggs");
@@ -36,18 +37,16 @@ public class EggsInfraRepository implements EggsRepository {
     public EggsRecord getEggsPerId(UUID idEggsRecord) {
         log.info("[start] EggsInfraRepository - getEggsPerId");
         var eggsRecord = eggsSpringDataJPARepository.findById(idEggsRecord)
-                        .orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND,
-                                "Registro não encontrado para este idEggs=" + idEggsRecord));
+                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
+                        "Registro não encontrado para este idEggs=" + idEggsRecord));
         log.info("[finish] EggsInfraRepository - getEggsPerId");
         return eggsRecord;
     }
 
-    /*@Override
+    @Override
     public void deleteEggs(EggsRecord eggsRecord) {
         log.info("[start] EggsInfraRepository - deleteEggs");
         eggsSpringDataJPARepository.delete(eggsRecord);
         log.info("[finish] EggsInfraRepository - deleteEggs");
-
-    }*/
-
+    }
 }
