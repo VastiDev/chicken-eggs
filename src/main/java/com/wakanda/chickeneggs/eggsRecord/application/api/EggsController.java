@@ -31,29 +31,21 @@ public class EggsController implements EggsAPI {
         return eggsPerChicken;
     }
 
-    /*@Override
-    public EggsChickenDetailsResponse getDetailedEggsFromChicken(UUID idChicken, UUID idEggs) {
+    @Override
+    public EggsChickenDetailsResponse getDetailedEggsFromChicken(UUID idChicken, UUID idEggsRecord) {
         log.info("[start] EggsController - getDetailedEggsFromChicken");
-        log.info("[idChicken] {} - [idPet] {} ", idChicken, idEggs);
-        EggsChickenDetailsResponse eggs = eggsService.getDetailsEggsPerChickenWithId(idChicken, idEggs);
+        log.info("[idChicken] {} - [idEggsRecord] {} ", idChicken, idEggsRecord);
+        EggsChickenDetailsResponse eggs = eggsService.getDetailsEggsPerChickenWithId(idChicken, idEggsRecord);
         log.info("[start] EggsController - getDetailedEggsFromChicken");
         return eggs;
     }
 
-    @Override
+    /*@Override
     public void deleteEggsRecord(UUID idChicken, UUID idEggs) {
         log.info("[start] EggsController - deleteEggsRecord");
         log.info("[idChicken] {} - [idEggs] {}", idChicken, idEggs);
         eggsService.deleteEggsWithId(idChicken, idEggs);
         log.info("[finish] EggsController - deleteEggsRecord");
 
-    }
-
-    @Override
-    public void patchEggsDaily(UUID idChicken, UUID idEggs, PatchEggsRequest patchEggsRequest) {
-        log.info("[start] EggsController - patchEggsDaily");
-        log.info("[idChicken] {} - [idEggs] {}", idChicken, idEggs);
-        eggsService.patchEggsFromChicken(idChicken, idEggs, patchEggsRequest);
-        log.info("[start] EggsController - patchEggsDaily");
     }*/
 }

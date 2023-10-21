@@ -19,18 +19,13 @@ public interface EggsAPI {
     @ResponseStatus(code = HttpStatus.OK)
     List<EggsRecordListResponse> getAllEggsPerChicken(@PathVariable UUID idChicken);
 
-    /*@GetMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
+    @GetMapping(value = "chicken/{idChicken}/eggs/{idEggsRecord}")
     @ResponseStatus(code = HttpStatus.OK)
-    EggsChickenDetailsResponse getDetailedEggsFromChicken(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
+    EggsChickenDetailsResponse getDetailedEggsFromChicken(@PathVariable UUID idChicken, @PathVariable UUID idEggsRecord);
 
-    @DeleteMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
+    /*@DeleteMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
     @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggs);
-
-    @PatchMapping(value = "chicken/{idChicken}/eggs/{idEggs}")
-    @ResponseStatus(code = HttpStatus.NO_CONTENT)
-    void patchEggsDaily(@PathVariable UUID idChicken,@PathVariable UUID idEggs,
-                            @Valid  PatchEggsRequest patchEggsRequest);*/
+    void deleteEggsRecord(@PathVariable UUID idChicken, @PathVariable UUID idEggsRecord);*/
 
 
 }

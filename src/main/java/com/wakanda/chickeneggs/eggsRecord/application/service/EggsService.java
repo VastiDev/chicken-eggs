@@ -12,12 +12,12 @@ public interface EggsService {
 
     List<EggsRecordListResponse> getEggsPerChickenWithId(UUID idChicken);
 
+    EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggsRecord);
 
 
-    /*EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggs);
 
-    void deleteEggsWithId(UUID idChicken, UUID idEggs);
+    /*void deleteEggsWithId(UUID idChicken, UUID idEggsRecord);*/
 
-    void patchEggsFromChicken(UUID idChicken, UUID idEggs, PatchEggsRequest patchEggsRequest);*/
+   
 
 }
