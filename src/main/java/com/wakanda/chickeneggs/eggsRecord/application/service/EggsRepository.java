@@ -11,11 +11,11 @@ public interface EggsRepository {
 
     List<EggsRecord> getEggsPerChickenWithId(UUID idChicken);
 
-    EggsRecord getEggsPerId(UUID idEggsRecord);
-
     void deleteEggs(EggsRecord eggsRecord);
 
     List<EggsRecord> getTotalEggsRecords();
 
     Double getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate);
+
+    EggsRecord getEggsPerId(UUID idEggsRecord);
 }

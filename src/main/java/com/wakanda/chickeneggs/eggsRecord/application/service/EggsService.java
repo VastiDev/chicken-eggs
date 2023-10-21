@@ -13,8 +13,6 @@ public interface EggsService {
 
     List<EggsRecordListResponse> getEggsPerChickenWithId(UUID idChicken);
 
-    EggsChickenDetailsResponse getDetailsEggsPerChickenWithId(UUID idChicken, UUID idEggsRecord);
-
     void deleteEggsWithId(UUID idChicken, UUID idEggsRecord);
 
     List<ListTotalEggsRecords> getTotalEggsRecords();

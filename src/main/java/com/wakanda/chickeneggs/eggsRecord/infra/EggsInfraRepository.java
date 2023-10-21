@@ -35,16 +35,6 @@ public class EggsInfraRepository implements EggsRepository {
     }
 
     @Override
-    public EggsRecord getEggsPerId(UUID idEggsRecord) {
-        log.info("[start] EggsInfraRepository - getEggsPerId");
-        var eggsRecord = eggsSpringDataJPARepository.findById(idEggsRecord)
-                .orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND,
-                        "Registro não encontrado para este idEggs=" + idEggsRecord));
-        log.info("[finish] EggsInfraRepository - getEggsPerId");
-        return eggsRecord;
-    }
-
-    @Override
     public void deleteEggs(EggsRecord eggsRecord) {
         log.info("[start] EggsInfraRepository - deleteEggs");
         eggsSpringDataJPARepository.delete(eggsRecord);
@@ -69,5 +59,14 @@ public class EggsInfraRepository implements EggsRepository {
                 .orElse(0.0);
         log.info("[finish] EggsInfraRepository - getAverageEggsInPeriod");
         return average;
+    }
+
+    @Override
+    public EggsRecord getEggsPerId(UUID idEggsRecord) {
+        log.info("[start] EggsInfraRepository - getEggsPerId");
+        EggsRecord eggsRecord = eggsSpringDataJPARepository.findById(idEggsRecord)
+                        .orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND, "idEggsRecord not found"));
+        log.info("[finish] EggsInfraRepository - getEggsPerId");
+        return eggsRecord;
     }
 }
