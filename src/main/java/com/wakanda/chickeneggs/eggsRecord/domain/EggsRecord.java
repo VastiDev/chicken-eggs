@@ -41,4 +41,5 @@ public class EggsRecord {
         this.eggsQuantity = eggsRecordRequest.getEggsQuantity();
         this.hourDateRegistration = eggsRecordRequest.getHourDateRegistration();
     }
+
 }

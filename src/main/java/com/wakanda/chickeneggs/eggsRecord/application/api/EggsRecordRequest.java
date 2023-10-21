@@ -1,12 +1,13 @@
 package com.wakanda.chickeneggs.eggsRecord.application.api;
 
-import lombok.Value;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 
 
-@Value
+@Getter
+@AllArgsConstructor
 public class EggsRecordRequest {
     @NotNull
     private Integer eggsQuantity;

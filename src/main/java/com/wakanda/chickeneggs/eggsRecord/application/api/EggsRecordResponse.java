@@ -9,9 +9,11 @@ import java.util.UUID;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class EggsRecordResponse {
     @NotNull
-    private UUID idEggs;
+    private UUID idEggsRecord;
 
-    public EggsRecordResponse(UUID idEggs) {
-        this.idEggs = idEggs;
+    public EggsRecordResponse(UUID idEggsRecord) {
+
+        this.idEggsRecord = idEggsRecord;
     }
+
 }
