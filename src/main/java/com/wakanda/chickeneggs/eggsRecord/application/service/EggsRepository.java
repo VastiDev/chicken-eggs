@@ -2,6 +2,7 @@ package com.wakanda.chickeneggs.eggsRecord.application.service;
 
 import com.wakanda.chickeneggs.eggsRecord.domain.EggsRecord;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -15,4 +16,6 @@ public interface EggsRepository {
     void deleteEggs(EggsRecord eggsRecord);
 
     List<EggsRecord> getTotalEggsRecords();
+
+    Double getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate);
 }

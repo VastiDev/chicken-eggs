@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Repository;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -56,5 +57,17 @@ public class EggsInfraRepository implements EggsRepository {
         var totalRecords = eggsSpringDataJPARepository.findAll();
         log.info("[finish] EggsInfraRepository - getTotalEggsRecords");
         return totalRecords;
+    }
+
+    @Override
+    public Double getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate) {
+        log.info("[start] EggsInfraRepository - getAverageEggsInPeriod");
+        List<EggsRecord> recordsInPeriod = eggsSpringDataJPARepository.findAllByHourDateRegistrationBetween(startDate, endDate);
+        double average = recordsInPeriod.stream()
+                .mapToInt(EggsRecord::getEggsQuantity)
+                .average()
+                .orElse(0.0);
+        log.info("[finish] EggsInfraRepository - getAverageEggsInPeriod");
+        return average;
     }
 }

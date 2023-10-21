@@ -66,8 +66,9 @@ public class EggsApplicationService implements EggsService {
     @Override
     public AverageEggsInPeriod getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate) {
         log.info("[start] EggsApplicationService - getAverageEggsInPeriod");
+        Double average = eggsRepository.getAverageEggsInPeriod(startDate, endDate);
         log.info("[finish] EggsApplicationService - getAverageEggsInPeriod");
-        return null;
+        return new AverageEggsInPeriod(average);
     }
 
 }
