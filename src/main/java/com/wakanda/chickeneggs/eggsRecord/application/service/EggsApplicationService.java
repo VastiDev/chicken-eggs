@@ -54,5 +54,13 @@ public class EggsApplicationService implements EggsService {
         log.info("[finish] EggsApplicationService - deleteEggsWithId");
     }
 
+    @Override
+    public List<ListTotalEggsRecords> getTotalEggsRecords() {
+        log.info("[start] EggsApplicationService - getTotalEggsRecords");
+        List<EggsRecord> totalRecords = eggsRepository.getTotalEggsRecords();
+        log.info("[finish] EggsApplicationService - getTotalEggsRecords");
+        return ListTotalEggsRecords.convert(totalRecords);
+    }
+
 }
 

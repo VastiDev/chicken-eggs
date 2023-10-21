@@ -29,5 +29,5 @@ public interface EggsAPI {
 
     @GetMapping(value = "listAll")
     @ResponseStatus(code = HttpStatus.OK)
-    List<listTotalEggsRecords> getAllEggsRecords();
+    List<ListTotalEggsRecords> getAllEggsRecords();
 }

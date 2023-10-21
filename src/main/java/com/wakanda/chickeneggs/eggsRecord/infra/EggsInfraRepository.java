@@ -49,4 +49,12 @@ public class EggsInfraRepository implements EggsRepository {
         eggsSpringDataJPARepository.delete(eggsRecord);
         log.info("[finish] EggsInfraRepository - deleteEggs");
     }
+
+    @Override
+    public List<EggsRecord> getTotalEggsRecords() {
+        log.info("[start] EggsInfraRepository - getTotalEggsRecords");
+        var totalRecords = eggsSpringDataJPARepository.findAll();
+        log.info("[finish] EggsInfraRepository - getTotalEggsRecords");
+        return totalRecords;
+    }
 }

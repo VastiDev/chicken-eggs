@@ -16,5 +16,5 @@ public interface EggsService {
 
     void deleteEggsWithId(UUID idChicken, UUID idEggsRecord);
 
-
+    List<ListTotalEggsRecords> getTotalEggsRecords();
 }

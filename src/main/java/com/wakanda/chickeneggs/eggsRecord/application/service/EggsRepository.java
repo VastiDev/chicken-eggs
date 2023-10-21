@@ -14,4 +14,5 @@ public interface EggsRepository {
 
     void deleteEggs(EggsRecord eggsRecord);
 
+    List<EggsRecord> getTotalEggsRecords();
 }
