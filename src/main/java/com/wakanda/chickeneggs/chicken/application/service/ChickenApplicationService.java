@@ -3,6 +3,8 @@ package com.wakanda.chickeneggs.chicken.application.service;
 import com.wakanda.chickeneggs.chicken.application.api.*;
 import com.wakanda.chickeneggs.chicken.application.repository.ChickenRepository;
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
+import com.wakanda.chickeneggs.eggsRecord.application.service.EggsRepository;
+import com.wakanda.chickeneggs.eggsRecord.domain.EggsRecord;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
@@ -16,6 +18,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class ChickenApplicationService implements ChickenService {
     private final ChickenRepository chickenRepository;
+    private final EggsRepository eggsRepository;
 
     @Override
     public ChickenResponse createChicken(ChickenRequest chickenrequest) {
@@ -39,8 +42,10 @@ public class ChickenApplicationService implements ChickenService {
     public ChickenDetailedResponse getChickenPerId(UUID idChicken) {
         log.info("[start] ChickenApplicationService - getChickenPerId");
         Chicken chicken = chickenRepository.getChickenPerId(idChicken);
+        List<EggsRecord> eggsRecordPerChicken = eggsRepository.getEggsPerChickenWithId(idChicken);
+        int totalEggs = eggsRecordPerChicken.stream().mapToInt(EggsRecord::getEggsQuantity).sum();
         log.info("[finish] ChickenApplicationService - getChickenPerId");
-        return new ChickenDetailedResponse(chicken);
+        return new ChickenDetailedResponse(chicken, totalEggs);
 
     }
 
