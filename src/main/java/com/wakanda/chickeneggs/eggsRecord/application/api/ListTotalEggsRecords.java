@@ -9,10 +9,14 @@ import java.util.stream.Collectors;
 
 @Value
 public class ListTotalEggsRecords {
+    private String nameChicken;
     private Integer eggsQuantity;
     private LocalDate hourDateRegistration;
 
+
+
     public ListTotalEggsRecords(EggsRecord eggsRecord) {
+        this.nameChicken = eggsRecord.getChicken().getNameChicken();
         this.eggsQuantity = eggsRecord.getEggsQuantity();
         this.hourDateRegistration = eggsRecord.getHourDateRegistration();
     }
