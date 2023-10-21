@@ -1,9 +1,11 @@
 package com.wakanda.chickeneggs.eggsRecord.application.api;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 
@@ -30,4 +32,12 @@ public interface EggsAPI {
     @GetMapping(value = "listAll")
     @ResponseStatus(code = HttpStatus.OK)
     List<ListTotalEggsRecords> getAllEggsRecords();
+
+    @GetMapping(value = "averageInPeriod")
+    @ResponseStatus(code = HttpStatus.OK)
+    AverageEggsInPeriod getAverageEggsInPeriod
+            (@RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+             LocalDate startDate,
+             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate);
+
 }

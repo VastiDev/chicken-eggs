@@ -8,6 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.stereotype.Service;
 
 import javax.validation.Valid;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 @Service
@@ -60,6 +61,13 @@ public class EggsApplicationService implements EggsService {
         List<EggsRecord> totalRecords = eggsRepository.getTotalEggsRecords();
         log.info("[finish] EggsApplicationService - getTotalEggsRecords");
         return ListTotalEggsRecords.convert(totalRecords);
+    }
+
+    @Override
+    public AverageEggsInPeriod getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate) {
+        log.info("[start] EggsApplicationService - getAverageEggsInPeriod");
+        log.info("[finish] EggsApplicationService - getAverageEggsInPeriod");
+        return null;
     }
 
 }

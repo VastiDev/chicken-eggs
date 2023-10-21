@@ -5,6 +5,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
 @RestController
@@ -55,5 +56,12 @@ public class EggsController implements EggsAPI {
         List<ListTotalEggsRecords> totalRecords = eggsService.getTotalEggsRecords();
         log.info("[finish] EggsController - getAllEggsRecords");
         return totalRecords ;
+    }
+
+    public AverageEggsInPeriod getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate) {
+        log.info("[start] EggsController - getAverageEggsInPeriod");
+        AverageEggsInPeriod average = eggsService.getAverageEggsInPeriod(startDate, endDate);
+        log.info("[finish] EggsController - getAverageEggsInPeriod");
+        return average;
     }
 }
