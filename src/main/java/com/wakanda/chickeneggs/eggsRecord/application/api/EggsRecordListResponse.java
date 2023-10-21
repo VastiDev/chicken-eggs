@@ -8,8 +8,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 @Value
 public class EggsRecordListResponse {
+    private String nameChicken;
     private Integer eggsQuantity;
     private LocalDate hourDateRegistration;
+
 
 
     public static List<EggsRecordListResponse> convert(List<EggsRecord> eggsRecordPerChicken) {
@@ -19,6 +21,7 @@ public class EggsRecordListResponse {
     }
 
     public EggsRecordListResponse(EggsRecord eggsRecord) {
+        this.nameChicken = eggsRecord.getChicken().getNameChicken();
         this.eggsQuantity = eggsRecord.getEggsQuantity();
         this.hourDateRegistration = eggsRecord.getHourDateRegistration();
 
