@@ -2,6 +2,7 @@ package com.wakanda.chickeneggs.chicken.domain;
 
 import com.wakanda.chickeneggs.chicken.application.api.ChickenRequest;
 import com.wakanda.chickeneggs.eggsRecord.domain.EggsRecord;
+import com.wakanda.chickeneggs.handler.APIException;
 import lombok.*;
 
 import javax.persistence.*;
@@ -15,6 +16,7 @@ import java.util.UUID;
 
 
 @Getter
+@Setter
 @Entity
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor(access = AccessLevel.PUBLIC)

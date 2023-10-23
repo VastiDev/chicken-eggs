@@ -8,6 +8,7 @@ import java.time.LocalDate;
 
 @Getter
 @AllArgsConstructor
+@Builder
 public class EggsRecordRequest {
     @NotNull
     private Integer eggsQuantity;

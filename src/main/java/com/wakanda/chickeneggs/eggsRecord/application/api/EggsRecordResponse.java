@@ -10,10 +10,7 @@ import java.util.UUID;
 public class EggsRecordResponse {
     @NotNull
     private UUID idEggsRecord;
-
     public EggsRecordResponse(UUID idEggsRecord) {
-
         this.idEggsRecord = idEggsRecord;
     }
-
 }

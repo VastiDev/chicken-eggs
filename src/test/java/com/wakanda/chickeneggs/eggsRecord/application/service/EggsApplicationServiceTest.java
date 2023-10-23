@@ -1,81 +1,123 @@
 package com.wakanda.chickeneggs.eggsRecord.application.service;
 
-import com.wakanda.chickeneggs.chicken.application.api.ChickenDetailedResponse;
+import com.wakanda.chickeneggs.DataHelper;
 import com.wakanda.chickeneggs.chicken.application.service.ChickenService;
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
-import com.wakanda.chickeneggs.eggsRecord.application.api.EggsRecordListResponse;
-import com.wakanda.chickeneggs.eggsRecord.application.api.EggsRecordRequest;
-import com.wakanda.chickeneggs.eggsRecord.application.api.EggsRecordResponse;
+import com.wakanda.chickeneggs.eggsRecord.application.api.*;
 import com.wakanda.chickeneggs.eggsRecord.domain.EggsRecord;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.test.context.junit4.SpringRunner;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
-import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
+@ExtendWith(MockitoExtension.class)
+public class EggsApplicationServiceTest {
 
-@RunWith(SpringRunner.class)
-@SpringBootTest
-class EggsApplicationServiceTest {
-    @Autowired
-    private EggsApplicationService service;
+    @InjectMocks
+    private EggsApplicationService eggsApplicationService;
 
-    @MockBean
+    @Mock
     private ChickenService chickenService;
 
-    @MockBean
+    @Mock
     private EggsRepository eggsRepository;
 
-    @Test
-    public void createEggsTest() {
-        // Given
+    private EggsRecordRequest eggsRecordRequest;
+    private EggsRecord eggsRecord;
+
+    private UUID chickenId;
+
+    private Chicken chicken;
+
+    @BeforeEach
+    public void setUp() {
         UUID chickenId = UUID.randomUUID();
-        EggsRecordRequest eggsRequest = new EggsRecordRequest(10, LocalDate.now());
-        UUID generatedEggsId = UUID.randomUUID();
-        EggsRecord mockedEggsRecord = mock(EggsRecord.class);
+        eggsRecordRequest = DataHelper.createEggsRecordRequest(10, LocalDate.now());
+        eggsRecord = DataHelper.createEggsRecord(chickenId, eggsRecordRequest.getEggsQuantity(), eggsRecordRequest.getHourDateRegistration());
+    }
+    @Test
+    public void testCreateEggs() {
+        when(eggsRepository.saveEggs(any(EggsRecord.class))).thenReturn(eggsRecord);
 
-        Chicken chicken = mock(Chicken.class); // Mocking Chicken class
-        ChickenDetailedResponse chickenResponse = new ChickenDetailedResponse(chicken, 10);
+        EggsRecordResponse response = eggsApplicationService.createEggs(chickenId, eggsRecordRequest);
 
-        // Setting up the expected behavior for our mocks
-        when(mockedEggsRecord.getIdEggsRecord()).thenReturn(generatedEggsId);
-        when(chickenService.getChickenPerId(chickenId)).thenReturn(chickenResponse); // Return the ChickenDetailedResponse
-        when(eggsRepository.saveEggs(any(EggsRecord.class))).thenReturn(mockedEggsRecord);
-
-        // When
-        EggsRecordResponse response;
-        response = service.createEggs(chickenId, eggsRequest);
-
-        // Then
-        assertEquals(generatedEggsId, response.getIdEggsRecord());
         verify(chickenService, times(1)).getChickenPerId(chickenId);
         verify(eggsRepository, times(1)).saveEggs(any(EggsRecord.class));
+        assertNotNull(response);
+        assertEquals(eggsRecord.getIdEggsRecord(), response.getIdEggsRecord());
+    }
+    // ... seu setup e outros mocks ...
+
+    @Test
+    public void testGetEggsPerChickenWithId() {
+        EggsRecord eggsRecord = DataHelper.createEggsRecord( chickenId,10, LocalDate.now());
+        List<EggsRecord> records = Collections.singletonList(eggsRecord);
+        when(eggsRepository.getEggsPerChickenWithId(chickenId)).thenReturn(records);
+
+        EggsRecordListResponse listResponse = DataHelper.createEggsRecordListResponse();
+        List<EggsRecordListResponse> mockResponse = Collections.singletonList(listResponse);
+        when(EggsRecordListResponse.convert(records)).thenReturn(mockResponse);
+
+
+        List<EggsRecordListResponse> response = eggsApplicationService.getEggsPerChickenWithId(chickenId);
+
+
+        verify(chickenService, times(1)).getChickenPerId(chickenId);
+        verify(eggsRepository, times(1)).getEggsPerChickenWithId(chickenId);
+        assertFalse(response.isEmpty());
+        assertEquals(records.size(), response.size());
+
     }
     @Test
-    public void getEggsPerChickenWithIdTest() {
-        // Given
-        UUID chickenId = UUID.randomUUID();
-        List<EggsRecord> mockEggsRecords = Arrays.asList(mock(EggsRecord.class), mock(EggsRecord.class));
-        when(chickenService.getChickenPerId(chickenId)).thenReturn(mock(ChickenDetailedResponse.class));
-        when(eggsRepository.getEggsPerChickenWithId(chickenId)).thenReturn(mockEggsRecords);
+    public void testDeleteEggsWithId() {
+        doNothing().when(eggsRepository).deleteEggs(any(EggsRecord.class));
+        when(eggsRepository.getEggsPerId(any(UUID.class))).thenReturn(eggsRecord);
 
-        // When
-        List<EggsRecordListResponse> result = service.getEggsPerChickenWithId(chickenId);
+        eggsApplicationService.deleteEggsWithId(chickenId, eggsRecord.getIdEggsRecord());
 
-        // Then
-        assertEquals(mockEggsRecords.size(), result.size());
+        verify(chickenService, times(1)).getChickenPerId(chickenId);
+        verify(eggsRepository, times(1)).getEggsPerId(eggsRecord.getIdEggsRecord());
+        verify(eggsRepository, times(1)).deleteEggs(any(EggsRecord.class));
     }
+
+    /*@Test
+    public void testGetTotalEggsRecords() {
+        List<EggsRecord> records = Collections.singletonList(eggsRecord);
+        when(eggsRepository.getTotalEggsRecords()).thenReturn(records);
+
+        List<ListTotalEggsRecords> response = eggsApplicationService.getTotalEggsRecords();
+
+        verify(eggsRepository, times(1)).getTotalEggsRecords();
+        assertFalse(response.isEmpty());
+        assertEquals(records.size(), response.size());
+    }*/
+
+    @Test
+    public void testGetAverageEggsInPeriod() {
+        LocalDate startDate = LocalDate.now().minusDays(10);
+        LocalDate endDate = LocalDate.now();
+        when(eggsRepository.getAverageEggsInPeriod(startDate, endDate)).thenReturn(12.0);
+
+        AverageEggsInPeriod response = eggsApplicationService.getAverageEggsInPeriod(startDate, endDate);
+
+        verify(eggsRepository, times(1)).getAverageEggsInPeriod(startDate, endDate);
+        assertNotNull(response);
+
+    }
+
 
 
 }

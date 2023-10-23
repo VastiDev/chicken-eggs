@@ -2,10 +2,7 @@ package com.wakanda.chickeneggs.eggsRecord.domain;
 
 import com.wakanda.chickeneggs.chicken.domain.Chicken;
 import com.wakanda.chickeneggs.eggsRecord.application.api.EggsRecordRequest;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 import javax.validation.Valid;
@@ -13,6 +10,8 @@ import javax.validation.constraints.NotNull;
 import java.time.LocalDate;
 import java.util.UUID;
 @Getter
+@Setter
+@Builder
 @Entity
 @NoArgsConstructor(access = AccessLevel.PUBLIC)
 @AllArgsConstructor (access = AccessLevel.PUBLIC)
@@ -31,6 +30,7 @@ public class EggsRecord {
     private UUID idChickenLay;
 
     @NotNull
+
     private Integer eggsQuantity;
     @NotNull
     private LocalDate hourDateRegistration;
