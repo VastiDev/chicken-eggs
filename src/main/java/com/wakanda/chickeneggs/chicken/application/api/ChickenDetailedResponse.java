@@ -12,14 +12,14 @@ public class ChickenDetailedResponse {
     private UUID idChicken;
     private String nameChicken;
     private LocalDate birthDate;
-    private LocalDateTime hourDateRegistration;
+
     private int eggsTotalQuantity;
 
     public ChickenDetailedResponse(Chicken chicken, int eggsTotal) {
         this.idChicken = chicken.getIdChicken();
         this.nameChicken = chicken.getNameChicken();
         this.birthDate =chicken.getBirthDate();
-        this.hourDateRegistration = chicken.getHourDateRegistration();
+
         this.eggsTotalQuantity = eggsTotal;
     }
 }
