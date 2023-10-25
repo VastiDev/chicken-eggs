@@ -21,16 +21,14 @@ public class EggsRecord {
     @Column(columnDefinition = "uuid", name = "idEggsRecord", updatable = false, unique = true, nullable = false)
     private UUID idEggsRecord;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "idChickenLay", referencedColumnName = "idChicken", nullable = false, insertable = false, updatable = false)
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "idChickenLay", referencedColumnName = "idChicken", insertable = false, updatable = false)
     private Chicken chicken;
 
     @NotNull
-    @Column(columnDefinition = "uuid", name = "idChickenLay", nullable = false)
     private UUID idChickenLay;
 
     @NotNull
-
     private Integer eggsQuantity;
     @NotNull
     private LocalDate hourDateRegistration;

@@ -42,12 +42,20 @@ public class EggsApplicationServiceTest {
 
     private Chicken chicken;
 
+
     @BeforeEach
     public void setUp() {
-        UUID chickenId = UUID.randomUUID();
+        chickenId = UUID.randomUUID();
+
+        chicken = new Chicken();
+        chicken.setNameChicken("Test Chicken");
+        chicken.setBirthDate(LocalDate.now());
+        // Outros atributos podem ser definidos conforme necessário para o seu teste.
+
         eggsRecordRequest = DataHelper.createEggsRecordRequest(10, LocalDate.now());
         eggsRecord = DataHelper.createEggsRecord(chickenId, eggsRecordRequest.getEggsQuantity(), eggsRecordRequest.getHourDateRegistration());
-    }
+        eggsRecord.setChicken(chicken);}
+
     @Test
     public void testCreateEggs() {
         when(eggsRepository.saveEggs(any(EggsRecord.class))).thenReturn(eggsRecord);
@@ -59,26 +67,21 @@ public class EggsApplicationServiceTest {
         assertNotNull(response);
         assertEquals(eggsRecord.getIdEggsRecord(), response.getIdEggsRecord());
     }
-    // ... seu setup e outros mocks ...
 
-    /*@Test
+
+    @Test
      public void testGetEggsPerChickenWithId() {
-        EggsRecord eggsRecord = DataHelper.createEggsRecord( chickenId,10, LocalDate.now());
-        List<EggsRecord> records = Collections.singletonList(eggsRecord);
+        List<EggsRecord> records = Collections.singletonList(this.eggsRecord);
         when(eggsRepository.getEggsPerChickenWithId(chickenId)).thenReturn(records);
 
         EggsRecordListResponse listResponse = DataHelper.createEggsRecordListResponse();
         List<EggsRecordListResponse> mockResponse = Collections.singletonList(listResponse);
-        when(EggsRecordListResponse.convert(records)).thenReturn(mockResponse);
-
-
         List<EggsRecordListResponse> response = eggsApplicationService.getEggsPerChickenWithId(chickenId);
-
 
         verify(chickenService, times(1)).getChickenPerId(chickenId);
         verify(eggsRepository, times(1)).getEggsPerChickenWithId(chickenId);
         assertFalse(response.isEmpty());
-        assertEquals(records.size(), response.size());*/
+        assertEquals(records.size(), response.size());}
 
 
     @Test
@@ -93,17 +96,18 @@ public class EggsApplicationServiceTest {
         verify(eggsRepository, times(1)).deleteEggs(any(EggsRecord.class));
     }
 
-    /*@Test
+    @Test
     public void testGetTotalEggsRecords() {
         List<EggsRecord> records = Collections.singletonList(eggsRecord);
         when(eggsRepository.getTotalEggsRecords()).thenReturn(records);
 
-        List<ListTotalEggsRecords> response = eggsApplicationService.getTotalEggsRecords();
+        List<ListTotalEggsRecords> response;
+        response = eggsApplicationService.getTotalEggsRecords();
 
         verify(eggsRepository, times(1)).getTotalEggsRecords();
         assertFalse(response.isEmpty());
         assertEquals(records.size(), response.size());
-    }*/
+    }
 
     @Test
     public void testGetAverageEggsInPeriod() {
