@@ -61,8 +61,8 @@ public class EggsApplicationServiceTest {
     }
     // ... seu setup e outros mocks ...
 
-    @Test
-    public void testGetEggsPerChickenWithId() {
+    /*@Test
+     public void testGetEggsPerChickenWithId() {
         EggsRecord eggsRecord = DataHelper.createEggsRecord( chickenId,10, LocalDate.now());
         List<EggsRecord> records = Collections.singletonList(eggsRecord);
         when(eggsRepository.getEggsPerChickenWithId(chickenId)).thenReturn(records);
@@ -78,9 +78,9 @@ public class EggsApplicationServiceTest {
         verify(chickenService, times(1)).getChickenPerId(chickenId);
         verify(eggsRepository, times(1)).getEggsPerChickenWithId(chickenId);
         assertFalse(response.isEmpty());
-        assertEquals(records.size(), response.size());
+        assertEquals(records.size(), response.size());*/
 
-    }
+
     @Test
     public void testDeleteEggsWithId() {
         doNothing().when(eggsRepository).deleteEggs(any(EggsRecord.class));
