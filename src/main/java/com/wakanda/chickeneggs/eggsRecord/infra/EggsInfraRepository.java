@@ -70,13 +70,16 @@ public class EggsInfraRepository implements EggsRepository {
         return eggsRecord;
     }
 
-    /*@Override
-    public Double getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate) {
+
+    @Override
+    public Integer getTotalEggs(UUID chickenId, LocalDate startDate, LocalDate endDate) {
         log.info("[start] EggsInfraRepository - getTotalEggs");
-        List<EggsRecord> totalEggsChicken = eggsSpringDataJPARepository.findAllEggsPerChickenPerId(idChicken, startDate, endDate);
-        double sum = totalEggsChicken.stream()
-                .mapToInt(EggsRecord::getEggsQuantity).sum();
+        List<EggsRecord> recordsForChickenInPeriod = eggsSpringDataJPARepository.findByIdChickenLayAndHourDateRegistrationBetween(chickenId, startDate, endDate);
+        int sum = recordsForChickenInPeriod.stream()
+                .mapToInt(EggsRecord::getEggsQuantity)
+                .sum();
         log.info("[finish] EggsInfraRepository - getTotalEggs");
         return sum;
-    }*/
+    }
+
 }

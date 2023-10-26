@@ -19,5 +19,6 @@ public interface EggsService {
 
     AverageEggsInPeriod getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate);
 
-    /*TotalEggsperChickenperDate getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate);*/
+    TotalEggsperChickenperDate getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate);
+
 }

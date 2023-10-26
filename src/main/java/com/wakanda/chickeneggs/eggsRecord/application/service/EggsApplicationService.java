@@ -62,13 +62,13 @@ public class EggsApplicationService implements EggsService {
         return new AverageEggsInPeriod(average);
     }
 
-    /*@Override
+    @Override
     public TotalEggsperChickenperDate getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate) {
         log.info("[start] EggsApplicationService - getTotalEggs");
-        Double totalEggs = eggsRepository.getTotalEggs(idChicken, startDate, endDate);
+        Integer totalEggs = eggsRepository.getTotalEggs(idChicken, startDate, endDate);
         log.info("[finish] EggsApplicationService - getTotalEggs");
         return new TotalEggsperChickenperDate(totalEggs);
-    }*/
+    }
 
 }
 

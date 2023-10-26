@@ -38,7 +38,7 @@ public class ChickenInfraRepository implements ChickenRepository {
     public Chicken getChickenPerId(UUID idChicken) {
         log.info("[start] ChickenInfraRepository - getChickenPerId");
         Chicken chicken = chickenSpringDataJpaRepository.findById(idChicken)
-                        .orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND,"Cchicken not found!!"));
+                        .orElseThrow(()-> APIException.build(HttpStatus.NOT_FOUND,"Chicken not found!!"));
         log.info("[finish] ChickenInfraRepository - getChickenPerId");
         return chicken;
     }

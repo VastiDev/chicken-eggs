@@ -19,5 +19,6 @@ public interface EggsRepository {
 
     EggsRecord getEggsPerId(UUID idEggsRecord);
 
-   /* Double getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate);*/
+    Integer getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate);
+
 }

@@ -4,5 +4,5 @@ import lombok.Value;
 
 @Value
 public class TotalEggsperChickenperDate {
-    private Double totalEggs;
+    private Integer totalEggs;
 }
