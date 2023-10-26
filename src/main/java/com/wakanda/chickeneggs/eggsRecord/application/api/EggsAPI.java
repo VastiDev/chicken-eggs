@@ -36,4 +36,12 @@ public interface EggsAPI {
              LocalDate startDate,
              @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate);
 
+    @GetMapping(value = "totalEggsperDate/chicken/{idChicken}")
+    @ResponseStatus(code = HttpStatus.OK)
+    TotalEggsperChickenperDate getTotalEggs
+            (@PathVariable UUID idChicken, @RequestParam("startDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
+            LocalDate startDate,
+             @RequestParam("endDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate);
+
+
 }

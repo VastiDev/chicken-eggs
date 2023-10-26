@@ -18,4 +18,6 @@ public interface EggsRepository {
     Double getAverageEggsInPeriod(LocalDate startDate, LocalDate endDate);
 
     EggsRecord getEggsPerId(UUID idEggsRecord);
+
+   /* Double getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate);*/
 }

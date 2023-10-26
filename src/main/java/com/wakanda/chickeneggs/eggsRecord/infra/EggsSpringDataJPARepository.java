@@ -11,4 +11,6 @@ public interface EggsSpringDataJPARepository extends JpaRepository<EggsRecord, U
     List<EggsRecord> findByIdChickenLay(UUID idChickenLay);
 
     List<EggsRecord> findAllByHourDateRegistrationBetween(LocalDate startDate, LocalDate endDate);
+
+   /* List<EggsRecord> findAllEggsPerChickenPerId(UUID idChicken, LocalDate startDate, LocalDate endDate);*/
 }

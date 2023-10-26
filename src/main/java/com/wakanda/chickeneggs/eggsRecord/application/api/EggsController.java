@@ -55,4 +55,14 @@ public class EggsController implements EggsAPI {
         log.info("[finish] EggsController - getAverageEggsInPeriod");
         return average;
     }
+
+    @Override
+    public TotalEggsperChickenperDate getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate) {
+        log.info("[start] EggsController - getTotalEggs");
+        /*TotalEggsperChickenperDate totalEggs = eggsService.getTotalEggs(idChicken,startDate, endDate  );*/
+        log.info("[finish] EggsController - getTotalEggs");
+        return null;
+    }
+
+
 }

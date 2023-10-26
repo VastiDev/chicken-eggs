@@ -69,4 +69,14 @@ public class EggsInfraRepository implements EggsRepository {
         log.info("[finish] EggsInfraRepository - getEggsPerId");
         return eggsRecord;
     }
+
+    /*@Override
+    public Double getTotalEggs(UUID idChicken, LocalDate startDate, LocalDate endDate) {
+        log.info("[start] EggsInfraRepository - getTotalEggs");
+        List<EggsRecord> totalEggsChicken = eggsSpringDataJPARepository.findAllEggsPerChickenPerId(idChicken, startDate, endDate);
+        double sum = totalEggsChicken.stream()
+                .mapToInt(EggsRecord::getEggsQuantity).sum();
+        log.info("[finish] EggsInfraRepository - getTotalEggs");
+        return sum;
+    }*/
 }
